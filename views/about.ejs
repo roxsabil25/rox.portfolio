@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon" type="image/png" href="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab.jpg">
+    <title>About - RoX Sabil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            /* Improve touch targets */
+            button, a, .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better scrolling */
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+            border-radius: 3px;
+        }
+        
+        /* Mobile Animations */
+        @keyframes slide-up-mobile {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes pulse-mobile {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-slide-up-mobile {
+            animation: slide-up-mobile 0.6s ease-out;
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out;
+        }
+        
+        .animate-pulse-mobile {
+            animation: pulse-mobile 2s infinite;
+        }
+        
+        /* Touch Feedback */
+        .touch-feedback:active {
+            transform: scale(0.95);
+            transition: transform 0.1s;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.5rem 0;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-nav-item.active {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+        }
+        
+        .mobile-nav-item:active {
+            background: rgba(220, 38, 38, 0.3);
+            transform: scale(0.9);
+        }
+        
+        /* Mobile Header */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Mobile Cards */
+        .mobile-card {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .mobile-card:active {
+            transform: scale(0.98);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Progress Bar for Mobile */
+        .mobile-progress {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .mobile-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease-out;
+        }
+        
+        /* Mobile Timeline */
+        .mobile-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .mobile-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+        }
+        
+        .mobile-timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.2rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #dc2626;
+            border-radius: 50%;
+            border: 3px solid #000;
+        }
+        
+        /* Mobile Stats */
+        .mobile-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Mobile Skill Badge */
+        .mobile-skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0.25rem;
+        }
+        
+        /* Mobile Section */
+        .mobile-section {
+            padding: 2rem 1rem;
+        }
+        
+        /* Mobile Gradient Text */
+        .mobile-gradient-text {
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Mobile Button */
+        .mobile-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            border-radius: 15px;
+            font-weight: 600;
+            border: none;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .mobile-button:active {
+            transform: scale(0.95);
+            opacity: 0.9;
+        }
+        
+        /* Mobile Avatar */
+        .mobile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+           /* border: 3px solid;
+           border-image: linear-gradient(45deg, #dc2626, #9333ea) 1; */
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        /* Mobile Tabs */
+        .mobile-tabs {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem 0;
+            gap: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .mobile-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .mobile-tab {
+            white-space: nowrap;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .mobile-tab.active {
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            border-color: transparent;
+        }
+        
+        .mobile-tab:active {
+            transform: scale(0.95);
+        }
+        
+        /* Mobile Backdrop */
+        .mobile-backdrop {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(0, 0, 0, 0.95));
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden scroll-smooth">
+    <!-- Mobile Header -->
+    <header class="mobile-header flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center animate-pulse-mobile">
+                 <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+            </div>
+            
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <button class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center touch-feedback">
+                <i class="fas fa-search"></i>
+            </button>
+            <button id="menuToggle" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center touch-feedback">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="p-6">
+            <!-- Menu Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12  rounded-xl flex items-center justify-center">
+                         <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">RoX Sabil</h2>
+                        <p class="text-gray-400 text-sm">Full-Stack Developer</p>
+                    </div>
+                </div>
+                <button id="closeMenu" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Menu Links -->
+            <div class="space-y-2 mb-8">
+                <a href="/" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all">
+                    <i class="fas fa-home text-gray-400 w-6"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/about" class="flex items-center gap-4 p-4 rounded-xl bg-red-600/20 text-red-500 border-l-4 border-red-500">
+                    <i class="fas fa-user text-red-500 w-6"></i>
+                    <span>About</span>
+                </a>
+                <a href="/projects" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all">
+                    <i class="fas fa-code text-gray-400 w-6"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/contact" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all">
+                    <i class="fas fa-envelope text-gray-400 w-6"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="/plan" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all">
+                    <i class="fas fa-rocket text-gray-400 w-6"></i>
+                    <span>Plan</span>
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="mb-8">
+                <h3 class="text-gray-400 text-sm mb-4">CONNECT WITH ME</h3>
+                <div class="flex gap-3">
+                    <a href="https://github.com/roxsabil25" class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-red-600 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rox-sabil-0042631ba/" class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/8801749935208" class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-green-500 transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+                    <a href="https://www.facebook.com/salsabil.rahman.90/" class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 text-gray-400">
+                    <i class="fas fa-envelope"></i>
+                    <span>roxsabil25@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-400">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>+88 01749935208</span>
+                </div>
+                <div class="flex items-center gap-3 text-gray-400">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Mirpur-12, Dhaka, Bangladesh</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-32">
+        <!-- Hero Section -->
+        <section class="mobile-section animate-fade-in">
+            <div class="text-center mb-8">
+                <div class="mobile-avatar mb-6">
+                    <img src="/img/sss.png" alt="RoX Sabil" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/ffffff?text=RX'">
+                </div>
+                <h1 class="text-3xl font-bold mb-2">RoX <span class="mobile-gradient-text">Sabil</span></h1>
+                <p class="text-gray-400 mb-4">KING OF OWN WORLD | Full-Stack Developer</p>
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star-half-alt text-yellow-500"></i>
+                    </div>
+                    <span class="text-gray-400">4.6/5.0 Rating</span>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="mobile-stat">
+                    <div class="text-2xl font-bold text-red-500">47+</div>
+                    <div class="text-sm text-gray-400">Projects</div>
+                </div>
+                <div class="mobile-stat">
+                    <div class="text-2xl font-bold text-blue-500">5+</div>
+                    <div class="text-sm text-gray-400">Years Exp</div>
+                </div>
+                <div class="mobile-stat">
+                    <div class="text-2xl font-bold text-green-500">32+</div>
+                    <div class="text-sm text-gray-400">Clients</div>
+                </div>
+                <div class="mobile-stat">
+                    <div class="text-2xl font-bold text-purple-500">100%</div>
+                    <div class="text-sm text-gray-400">Satisfaction</div>
+                </div>
+            </div>
+            
+            <!-- Bio -->
+            <div class="mobile-card animate-slide-up-mobile">
+                <h2 class="text-xl font-bold mb-4">My Story</h2>
+                <p class="text-gray-300 mb-4">
+                    I'm a passionate full-stack developer specializing in creating immersive digital experiences where technology meets artistry. 
+                    With over 5 years of experience, I transform complex problems into elegant, interactive solutions.
+                </p>
+                <p class="text-gray-300">
+                    My journey started with a fascination for how things work, which evolved into a career crafting cutting-edge web applications, 
+                    3D animations, and scalable backend architectures.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">Technical Skills</h2>
+            
+            <!-- Skills Tabs -->
+            <div class="mobile-tabs mb-6">
+                <button class="mobile-tab active" data-category="frontend">Frontend</button>
+                <button class="mobile-tab" data-category="backend">Backend</button>
+                <button class="mobile-tab" data-category="tools">Tools</button>
+                <button class="mobile-tab" data-category="soft">Soft Skills</button>
+            </div>
+            
+            <!-- Skills Content -->
+            <div id="skillsContent">
+                <!-- Frontend Skills -->
+                <div class="skills-category active" data-category="frontend">
+                    <div class="space-y-4">
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>React & Next.js</span>
+                                <span class="text-red-500 font-bold">98%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-red-600 to-red-400" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>Vue.js</span>
+                                <span class="text-blue-500 font-bold">92%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-blue-600 to-blue-400" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>Three.js & 3D</span>
+                                <span class="text-purple-500 font-bold">95%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-purple-600 to-purple-400" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills (hidden by default) -->
+                <div class="skills-category" data-category="backend" style="display: none;">
+                    <div class="space-y-4">
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>Node.js & Express</span>
+                                <span class="text-green-500 font-bold">96%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-green-600 to-green-400" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                <span class="text-yellow-500 font-bold">75%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-yellow-600 to-yellow-400" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-card">
+                            <div class="flex justify-between mb-2">
+                                <span>Database Design</span>
+                                <span class="text-cyan-500 font-bold">94%</span>
+                            </div>
+                            <div class="mobile-progress">
+                                <div class="mobile-progress-fill bg-gradient-to-r from-cyan-600 to-cyan-400" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill Badges -->
+            <div class="mt-8">
+                <h3 class="text-lg font-bold mb-4">Technologies I Use</h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="mobile-skill-badge">
+                        <i class="fab fa-react text-cyan-500 mr-2"></i> React
+                    </span>
+                    <span class="mobile-skill-badge">
+                        <i class="fab fa-node-js text-green-500 mr-2"></i> Node.js
+                    </span>
+                    <span class="mobile-skill-badge">
+                        <i class="fab fa-python text-yellow-500 mr-2"></i> Python
+                    </span>
+                    <span class="mobile-skill-badge">
+                        <i class="fas fa-database text-blue-500 mr-2"></i> MongoDB
+                    </span>
+                    <span class="mobile-skill-badge">
+                        <i class="fa-brands fa-square-js"></i> JavaScript
+                    </span>
+                    <span class="mobile-skill-badge">
+                        <i class="fab fa-docker text-blue-400 mr-2"></i> Docker
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="mobile-section mobile-backdrop">
+            <h2 class="text-2xl font-bold mb-6 text-center">My Journey</h2>
+            
+            <div class="mobile-timeline">
+                <div class="mobile-timeline-item animate-slide-up-mobile">
+                    <div class="mobile-card">
+                        <div class="text-red-500 font-semibold mb-2">2025 - Present</div>
+                        <h3 class="text-lg font-bold mb-2">Cyber Security Specialist</h3>
+                        <p class="text-gray-300">Implementing security protocols, vulnerability assessments, and threat analysis for enterprise systems.</p>
+                    </div>
+                </div>
+                
+                <div class="mobile-timeline-item animate-slide-up-mobile" style="animation-delay: 0.1s">
+                    <div class="mobile-card">
+                        <div class="text-purple-500 font-semibold mb-2">2023 - 2025</div>
+                        <h3 class="text-lg font-bold mb-2">Senior Web Developer</h3>
+                        <p class="text-gray-300">Leading full-stack development projects with React, Node.js, and cloud infrastructure.</p>
+                    </div>
+                </div>
+                
+                <div class="mobile-timeline-item animate-slide-up-mobile" style="animation-delay: 0.2s">
+                    <div class="mobile-card">
+                        <div class="text-blue-500 font-semibold mb-2">2019 - 2023</div>
+                        <h3 class="text-lg font-bold mb-2">Frontend Architect</h3>
+                        <p class="text-gray-300">Designing and implementing advanced UI systems with 3D animations and interactive elements.</p>
+                    </div>
+                </div>
+                
+                <div class="mobile-timeline-item animate-slide-up-mobile" style="animation-delay: 0.3s">
+                    <div class="mobile-card">
+                        <div class="text-green-500 font-semibold mb-2">2022 - 2024</div>
+                        <h3 class="text-lg font-bold mb-2">Web Developer</h3>
+                        <p class="text-gray-300">Building responsive websites and web applications for various clients and industries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">Development Philosophy</h2>
+            
+            <div class="space-y-4">
+                <div class="mobile-card animate-slide-up-mobile">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-brain text-red-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Innovation First</h3>
+                            <p class="text-gray-300">Pushing boundaries with emerging technologies and creative solutions that redefine user experiences.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mobile-card animate-slide-up-mobile" style="animation-delay: 0.1s">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-blue-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Security Focus</h3>
+                            <p class="text-gray-300">Building with security-first mindset, ensuring robust protection against modern cyber threats.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mobile-card animate-slide-up-mobile" style="animation-delay: 0.2s">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-rocket text-green-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Performance Excellence</h3>
+                            <p class="text-gray-300">Optimizing for speed and efficiency, delivering lightning-fast applications with minimal footprint.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="mobile-section mobile-backdrop">
+            <h2 class="text-2xl font-bold mb-6 text-center">Certifications</h2>
+            
+            <div class="space-y-4">
+                <div class="mobile-card animate-slide-up-mobile">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold">Full Stack Developer</h3>
+                            <p class="text-gray-400 text-sm">Meta</p>
+                        </div>
+                        <span class="px-3 py-1 bg-red-600/20 text-red-500 rounded-full text-sm font-semibold">VERIFIED</span>
+                    </div>
+                    <p class="text-gray-300 mb-3">Advanced React, Node.js, Databases, and Deployment strategies</p>
+                    <div class="flex justify-between text-sm">
+                        <span>Expertise Level</span>
+                        <span class="font-bold text-red-500">98%</span>
+                    </div>
+                </div>
+                
+                <div class="mobile-card animate-slide-up-mobile" style="animation-delay: 0.1s">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold">AWS Certified</h3>
+                            <p class="text-gray-400 text-sm">---</p>
+                        </div>
+                        <span class="px-3 py-1 bg-blue-600/20 text-blue-500 rounded-full text-sm font-semibold">ACTIVE</span>
+                    </div>
+                    <p class="text-gray-300 mb-3">Cloud Architecture, Security, Serverless Computing</p>
+                    <div class="flex justify-between text-sm">
+                        <span>Expertise Level</span>
+                        <span class="font-bold text-blue-500">95%</span>
+                    </div>
+                </div>
+                
+                <div class="mobile-card animate-slide-up-mobile" style="animation-delay: 0.2s">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold">Cyber Security</h3>
+                            <p class="text-gray-400 text-sm">ISC2</p>
+                        </div>
+                        <span class="px-3 py-1 bg-green-600/20 text-green-500 rounded-full text-sm font-semibold">ELITE</span>
+                    </div>
+                    <p class="text-gray-300 mb-3">Threat Analysis, Pen Testing, Security Architecture</p>
+                    <div class="flex justify-between text-sm">
+                        <span>Beginner Level</span>
+                        <span class="font-bold text-green-500">96%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="mobile-section">
+            <div class="mobile-card animate-slide-up-mobile">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4">Let's Work Together</h2>
+                    <p class="text-gray-300 mb-6">Ready to bring your ideas to life? Let's create something amazing together.</p>
+                    
+                    <div class="space-y-4">
+                        <a href="https://wa.me/8801749935208" class="mobile-button touch-feedback">
+                            <i class="fas fa-rocket mr-3"></i>
+                            Start a Project
+                        </a>
+                        
+                        <a href="/cv" class="mobile-button touch-feedback" style="background: linear-gradient(90deg, #1a1a1a, #000); border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <i class="fas fa-download mr-3"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-5">
+                <a href="/" class="mobile-nav-item">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="text-xs mt-1">Home</span>
+                </a>
+                <a href="/about" class="mobile-nav-item active">
+                    <i class="fas fa-user text-lg text-red-500"></i>
+                    <span class="text-xs mt-1 text-red-500">About</span>
+                </a>
+                <a href="/projects" class="mobile-nav-item">
+                    <i class="fas fa-code text-lg"></i>
+                    <span class="text-xs mt-1">Projects</span>
+                </a>
+                <a href="/contact" class="mobile-nav-item">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span class="text-xs mt-1">Contact</span>
+                </a>
+                <a href="/plan" class="mobile-nav-item">
+                    <i class="fas fa-rocket text-lg"></i>
+                    <span class="text-xs mt-1">Plan</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Skills Tabs
+        const skillTabs = document.querySelectorAll('.mobile-tab');
+        const skillCategories = document.querySelectorAll('.skills-category');
+        
+        skillTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                skillTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Get category
+                const category = tab.getAttribute('data-category');
+                
+                // Hide all skill categories
+                skillCategories.forEach(cat => {
+                    cat.style.display = 'none';
+                });
+                
+                // Show selected category
+                document.querySelector(`.skills-category[data-category="${category}"]`).style.display = 'block';
+                
+                // Add touch feedback
+                tab.classList.add('touch-feedback');
+                setTimeout(() => tab.classList.remove('touch-feedback'), 100);
+            });
+        });
+        
+        // Animate progress bars on scroll
+        const progressBars = document.querySelectorAll('.mobile-progress-fill');
+        
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0%';
+                    
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 300);
+                    
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        progressBars.forEach(bar => {
+            bar.style.transition = 'width 1.5s ease-out';
+            progressObserver.observe(bar);
+        });
+        
+        // Add scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-slide-up-mobile');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        };
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Mobile card tap effects
+        const mobileCards = document.querySelectorAll('.mobile-card');
+        
+        mobileCards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger initial animation
+            setTimeout(() => {
+                document.querySelectorAll('.animate-fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 100);
+            
+            // Animate timeline items sequentially
+            const timelineItems = document.querySelectorAll('.mobile-timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Handle mobile orientation change
+        window.addEventListener('orientationchange', () => {
+            // Recalculate animations after orientation change
+            setTimeout(animateOnScroll, 300);
+        });
+    </script>
+</body>
+</html>

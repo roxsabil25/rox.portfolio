@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon" type="image/png" href="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab.jpg">
+    <title>Projects - RoX Sabil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            /* Prevent horizontal scroll */
+            .container {
+                width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Improve touch targets */
+            button, a, .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+        
+        /* Custom Scrollbar for Mobile */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+            border-radius: 3px;
+        }
+        
+        /* Mobile-First Animations */
+        @keyframes mobile-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        @keyframes slide-up {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes float-mobile {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(5deg); }
+            66% { transform: translateY(5px) rotate(-5deg); }
+        }
+        
+        .animate-mobile-pulse {
+            animation: mobile-pulse 2s infinite;
+        }
+        
+        .animate-slide-up {
+            animation: slide-up 0.8s ease-out;
+        }
+        
+        .animate-shake {
+            animation: shake 0.5s;
+        }
+        
+        .animate-float-mobile {
+            animation: float-mobile 6s ease-in-out infinite;
+        }
+        
+        /* Aggressive Mobile Effects */
+        .aggressive-tap:active {
+            transform: scale(0.95);
+            transition: transform 0.1s;
+        }
+        
+        .aggressive-hover {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .aggressive-hover:active {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
+        }
+        
+        /* Mobile 3D Card */
+        .mobile-3d-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .mobile-3d-card:active {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        
+        /* Swipe Indicators */
+        .swipe-indicator {
+            width: 40px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            position: relative;
+        }
+        
+        .swipe-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 5px;
+            background: #dc2626;
+            border-radius: 3px;
+            animation: swipe 2s infinite;
+        }
+        
+        @keyframes swipe {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Mobile Glitch Effect */
+        .mobile-glitch {
+            position: relative;
+        }
+        
+        .mobile-glitch::before,
+        .mobile-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip: rect(0, 900px, 0, 0);
+        }
+        
+        .mobile-glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00ff;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        
+        .mobile-glitch::after {
+            left: -2px;
+            text-shadow: 1px 0 #00ffff;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(20px, 9999px, 25px, 0); }
+            5% { clip: rect(15px, 9999px, 30px, 0); }
+            10% { clip: rect(40px, 9999px, 45px, 0); }
+            15% { clip: rect(60px, 9999px, 65px, 0); }
+            20% { clip: rect(80px, 9999px, 85px, 0); }
+            100% { clip: rect(0, 9999px, 0, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(10px, 9999px, 15px, 0); }
+            5% { clip: rect(25px, 9999px, 30px, 0); }
+            10% { clip: rect(35px, 9999px, 40px, 0); }
+            15% { clip: rect(55px, 9999px, 60px, 0); }
+            20% { clip: rect(75px, 9999px, 80px, 0); }
+            100% { clip: rect(0, 9999px, 0, 0); }
+        }
+        
+        /* Haptic Feedback Simulation */
+        .haptic-feedback {
+            animation: haptic 0.1s;
+        }
+        
+        @keyframes haptic {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+        
+        /* Mobile Project Card */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .project-card:active {
+            transform: scale(0.98);
+        }
+        
+        .project-card-content {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+            padding: 1.5rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+        
+        .project-card:hover .project-card-content,
+        .project-card:active .project-card-content {
+            transform: translateY(0);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.5rem 0;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-nav-item.active {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+        }
+        
+        .mobile-nav-item:active {
+            background: rgba(220, 38, 38, 0.3);
+            transform: scale(0.9);
+        }
+        
+        /* Mobile Project Filter */
+        .mobile-filter {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
+        }
+        
+        .mobile-filter::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .mobile-filter-item {
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .mobile-filter-item.active {
+            background: #dc2626;
+            border-color: #dc2626;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .mobile-filter-item:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Mobile Header -->
+    <header class="w-full bg-black/95 border-b border-white/10 fixed top-0 left-0 z-50 backdrop-blur-sm py-3 px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center animate-mobile-pulse">
+                   <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+                </div>
+                <span class="text-xl font-bold"> <span class="text-red-600"></span></span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="mobileMenuBtn" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10 max-h-0 overflow-hidden transition-all duration-300">
+            <div class="flex flex-col py-4">
+                <a href="/" class="px-4 py-3 flex items-center gap-3 hover:bg-white/5 active:bg-red-600/20">
+                    <i class="fas fa-home text-gray-400 w-5"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/about" class="px-4 py-3 flex items-center gap-3 hover:bg-white/5 active:bg-red-600/20">
+                    <i class="fas fa-user text-gray-400 w-5"></i>
+                    <span>About</span>
+                </a>
+                <a href="/projects" class="px-4 py-3 flex items-center gap-3 bg-red-600/20 text-red-500 border-l-4 border-red-500">
+                    <i class="fas fa-code text-red-500 w-5"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/contact" class="px-4 py-3 flex items-center gap-3 hover:bg-white/5 active:bg-red-600/20">
+                    <i class="fas fa-envelope text-gray-400 w-5"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="/plan" class="px-4 py-3 flex items-center gap-3 hover:bg-white/5 active:bg-red-600/20">
+                    <i class="fas fa-rocket text-gray-400 w-5"></i>
+                    <span>Plan</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pt-20 pb-32">
+        <!-- Aggressive Mobile Hero -->
+        <section class="mb-10 relative overflow-hidden animate-slide-up">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-red-600/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-600/20 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl font-bold mb-4">
+                    <span class="mobile-glitch" data-text="AGGRESSIVE PROJECTS">AGGRESSIVE PROJECTS</span>
+                </h1>
+                <p class="text-gray-300 mb-6">
+                    High-impact, cutting-edge projects that push boundaries and deliver exceptional results.
+                </p>
+                
+                <!-- Swipe Indicator -->
+                <div class="flex justify-center mb-6">
+                    <div class="swipe-indicator"></div>
+                </div>
+                
+                <!-- Aggressive Stats -->
+                <div class="grid grid-cols-2 gap-3 mb-8">
+                    <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-4 border border-white/10 aggressive-hover">
+                        <div class="text-3xl font-bold text-red-500 mb-1">47+</div>
+                        <div class="text-sm text-gray-400">Projects Delivered</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-4 border border-white/10 aggressive-hover">
+                        <div class="text-3xl font-bold text-blue-500 mb-1">100%</div>
+                        <div class="text-sm text-gray-400">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Filter for Mobile -->
+        <section class="mb-8">
+            <div class="mobile-filter">
+                <button class="mobile-filter-item active" data-filter="all">All Projects</button>
+                <button class="mobile-filter-item" data-filter="web">Web Development</button>
+                <button class="mobile-filter-item" data-filter="mobile">Mobile Apps</button>
+                <button class="mobile-filter-item" data-filter="design">UI/UX Design</button>
+                <button class="mobile-filter-item" data-filter="security">Security</button>
+                <button class="mobile-filter-item" data-filter="ai">AI/ML</button>
+            </div>
+        </section>
+
+        <!-- Projects Grid - Mobile Optimized -->
+        <section id="projectsGrid" class="space-y-6">
+            <!-- Project 1 -->
+            <div class="project-card aggressive-hover" data-category="web">
+                <div class="relative h-64 rounded-2xl overflow-hidden">
+                    <img src="/img/download.jpeg" alt="E-Commerce Platform" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-red-600/90 backdrop-blur-sm rounded-full text-xs font-bold">WEB</span>
+                    </div>
+
+
+
+<% projects.forEach(project => { %>
+
+  <% if(project.title.toLowerCase().includes("web-development")) { %>
+
+    <div class="project-card-content">
+
+        <h3 class="text-xl font-bold mb-2"><%=  project.title.charAt(0).toUpperCase() + project.title.slice(1).toLowerCase()  %></h3>
+
+        <p class="text-gray-300 text-sm mb-3"><%= project.decription %></p>
+
+        <div class="flex items-center justify-between">
+
+            <div class="flex gap-2">
+                <% project.skills.forEach(skill => { %>
+                  <span class="px-2 py-1 bg-white/10 rounded text-xs"><%= skill %></span>
+                <% }) %>
+            </div>
+
+            <a href="/projectshocase/<%= project.title %>" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <% } %>
+
+<% }) %>
+
+
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card aggressive-hover" data-category="mobile">
+                <div class="relative h-64 rounded-2xl overflow-hidden">
+                    <img src="/img/ai.PNG" alt="Fitness App" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-blue-600/90 backdrop-blur-sm rounded-full text-xs font-bold">AI</span>
+                    </div>
+
+<% projects.forEach(project => { %>
+
+  <% if(project.title.toLowerCase().includes("ai-assistant")) { %>
+
+    <div class="project-card-content">
+
+        <h3 class="text-xl font-bold mb-2"><%=  project.title.charAt(0).toUpperCase() + project.title.slice(1).toLowerCase()  %></h3>
+
+        <p class="text-gray-300 text-sm mb-3"><%= project.decription %></p>
+
+        <div class="flex items-center justify-between">
+
+            <div class="flex gap-2">
+                <% project.skills.forEach(skill => { %>
+                  <span class="px-2 py-1 bg-white/10 rounded text-xs"><%= skill %></span>
+                <% }) %>
+            </div>
+
+            <a href="/projectshocase/<%= project.title %>" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <% } %>
+
+<% }) %>
+
+
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card aggressive-hover" data-category="design">
+                <div class="relative h-64 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="UI Design System" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-purple-600/90 backdrop-blur-sm rounded-full text-xs font-bold">UI/UX</span>
+                    </div>
+                    <% projects.forEach(project => { %>
+
+  <% if(project.title.toLowerCase().includes("ui-ux-design")) { %>
+
+    <div class="project-card-content">
+
+        <h3 class="text-xl font-bold mb-2"><%= project.title.charAt(0).toUpperCase() + project.title.slice(1).toLowerCase() %></h3>
+
+        <p class="text-gray-300 text-sm mb-3"><%= project.decription %></p>
+
+        <div class="flex items-center justify-between">
+
+            <div class="flex gap-2">
+                <% project.skills.forEach(skill => { %>
+                  <span class="px-2 py-1 bg-white/10 rounded text-xs"><%= skill %></span>
+                <% }) %>
+            </div>
+
+            <a href="/projectshocase/<%= project.title %>" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <% } %>
+
+<% }) %>
+
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+                       <!-- <div class="project-card aggressive-hover" data-category="mobile">
+                <div class="relative h-64 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fitness App" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-blue-600/90 backdrop-blur-sm rounded-full text-xs font-bold">MOBILE</span>
+                    </div>
+
+<% projects.forEach(project => { %>
+
+  <% if(project.title.toLowerCase().includes("ai")) { %>
+
+    <div class="project-card-content">
+
+        <h3 class="text-xl font-bold mb-2"><%= project.title.charAt(0).toUpperCase() + project.title.slice(1).toLowerCase() %></h3>
+
+        <p class="text-gray-300 text-sm mb-3"><%= project.decription %></p>
+
+        <div class="flex items-center justify-between">
+
+            <div class="flex gap-2">
+                <% project.skills.forEach(skill => { %>
+                  <span class="px-2 py-1 bg-white/10 rounded text-xs"><%= skill %></span>
+                <% }) %>
+            </div>
+
+            <a href="/projectshocase/<%= project.title %>" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <% } %>
+
+<% }) %>
+
+
+                </div>
+            </div> -->
+
+
+            <!-- Project 5 -->
+                        <div class="project-card aggressive-hover" data-category="security">
+                <div class="relative h-64 rounded-2xl overflow-hidden">
+                    <img src="/img/haking.png" alt="Fitness App" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-blue-600/90 backdrop-blur-sm rounded-full text-xs font-bold">Hacking Tools</span>
+                    </div>
+
+<% projects.forEach(project => { %>
+
+  <% if(project.title.toLowerCase().includes("hacking-software")) { %>
+
+    <div class="project-card-content">
+
+        <h3 class="text-xl font-bold mb-2"><%= project.title.charAt(0).toUpperCase() + project.title.slice(1).toLowerCase() %></h3>
+
+        <p class="text-gray-300 text-sm mb-3"><%= project.decription %></p>
+
+        <div class="flex items-center justify-between">
+
+            <div class="flex gap-2">
+                <% project.skills.forEach(skill => { %>
+                  <span class="px-2 py-1 bg-white/10 rounded text-xs"><%= skill %></span>
+                <% }) %>
+            </div>
+
+            <a href="/projectshocase/<%= project.title %>" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+  <% } %>
+
+<% }) %>
+
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Aggressive CTA Section -->
+        <section class="mt-12 bg-gradient-to-r from-black to-gray-900 rounded-3xl p-6 border border-white/10 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 via-purple-600 to-cyan-600 animate-pulse"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-600 via-purple-600 to-red-600 animate-pulse"></div>
+            
+            <div class="relative z-10 text-center">
+                <h3 class="text-2xl font-bold mb-4">Ready to Build Something Aggressive?</h3>
+                <p class="text-gray-300 mb-6">Let's collaborate on your next high-impact project.</p>
+                
+                <div class="flex flex-col gap-4">
+                    <a href="/contact" class="cta-aggressive px-6 py-4 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl font-bold text-white text-lg aggressive-hover aggressive-tap w-full">
+                        <span class="flex items-center justify-center gap-3">
+                            <i class="fas fa-bolt"></i>
+                            Start a Project
+                        </span>
+                    </a>
+                    
+                    <a href="https://wa.me/8801749935208" class="px-6 py-4 bg-gradient-to-r from-gray-900 to-black border border-cyan-600/50 rounded-2xl font-bold text-cyan-500 text-lg aggressive-hover aggressive-tap w-full">
+                        <span class="flex items-center justify-center gap-3">
+                            <i class="fas fa-message"></i>
+                            Contact Me
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Showcase Modal -->
+        <div id="projectModal" class="fixed inset-0 bg-black/90 z-50 hidden overflow-y-auto flex">
+            <div class="min-h-full p-4 flex items-center justify-center">
+                <div class="bg-gradient-to-b from-gray-900 to-black rounded-3xl w-full max-w-lg border border-white/10 relative">
+                    <button id="closeModal" class="absolute top-4 right-4 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center aggressive-tap">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                    <div class="p-6">
+                        <div id="modalImage" class="w-full h-48 rounded-2xl mb-6 bg-gradient-to-r from-red-600/20 to-purple-600/20 flex items-center justify-center">
+                            <i class="fas fa-image text-5xl text-white/30"></i>
+                        </div>
+                        
+                        <div id="modalContent flex">
+                            <!-- Dynamic content will be inserted here -->
+
+                <div>            <h3 class="text-2xl font-bold mb-2">roxxx</h3>
+                    <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-sm mb-4">web</div>
+                    <p class="text-gray-300 mb-4">hhhhhhhhhhhhhh</p>
+                    <div class="mb-4">
+                        <h4 class="font-bold mb-2">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            
+                            
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-sm">tech</span>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+
+
+                
+                <div>            <h3 class="text-2xl font-bold mb-2">roxxx</h3>
+                    <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-sm mb-4">web</div>
+                    <p class="text-gray-300 mb-4">hhhhhhhhhhhhhh</p>
+                    <div class="mb-4">
+                        <h4 class="font-bold mb-2">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            
+                            
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-sm">tech</span>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+
+                
+                <div>            <h3 class="text-2xl font-bold mb-2">roxxx</h3>
+                    <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-sm mb-4">web</div>
+                    <p class="text-gray-300 mb-4">hhhhhhhhhhhhhh</p>
+                    <div class="mb-4">
+                        <h4 class="font-bold mb-2">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            
+                            
+                                <span class="px-3 py-1 bg-white/5 rounded-full text-sm">tech</span>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+                        </div>
+                        
+                        <div class="mt-6 flex gap-4">
+                            <button class="flex-1 py-3 bg-red-600 rounded-xl font-bold aggressive-hover aggressive-tap">
+                                <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+                            </button>
+                            <button class="flex-1 py-3 bg-gray-800 rounded-xl font-bold aggressive-hover aggressive-tap">
+                                <i class="fab fa-github mr-2"></i> GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-5">
+                <a href="/" class="mobile-nav-item">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="text-xs mt-1">Home</span>
+                </a>
+                <a href="/about" class="mobile-nav-item">
+                    <i class="fas fa-user text-lg"></i>
+                    <span class="text-xs mt-1">About</span>
+                </a>
+                <a href="/projects" class="mobile-nav-item active">
+                    <i class="fas fa-code text-lg text-red-500"></i>
+                    <span class="text-xs mt-1 text-red-500">Projects</span>
+                </a>
+                <a href="/contact" class="mobile-nav-item">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span class="text-xs mt-1">Contact</span>
+                </a>
+                <a href="/plan" class="mobile-nav-item">
+                    <i class="fas fa-rocket text-lg"></i>
+                    <span class="text-xs mt-1">Plan</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+            
+            if (isOpen) {
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            }
+            
+            // Haptic feedback simulation
+            mobileMenuBtn.classList.add('haptic-feedback');
+            setTimeout(() => mobileMenuBtn.classList.remove('haptic-feedback'), 100);
+        });
+
+        // // Project Filtering
+        const filterButtons = document.querySelectorAll('.mobile-filter-item');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Haptic feedback
+                button.classList.add('haptic-feedback');
+                setTimeout(() => button.classList.remove('haptic-feedback'), 100);
+        
+        
+
+        //         // Filter projects
+                const filter = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.add('animate-slide-up');
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+
+                
+        //         // Aggressive shake effect
+                document.getElementById('projectsGrid').classList.add('animate-shake');
+                setTimeout(() => {
+                    document.getElementById('projectsGrid').classList.remove('animate-shake');
+                }, 500);
+            });
+        });
+
+        
+
+        // // Project Modal
+        // const projectModal = document.getElementById('projectModal');
+        // const closeModal = document.getElementById('closeModal');
+        // const modalContent = document.getElementById('modalContent');
+        // const modalImage = document.getElementById('modalImage');
+        
+        // // Sample project data
+        // const projects = {
+        //     1: {
+        //         title: "Nexus E-Commerce",
+        //         category: "Web Development",
+        //         description: "A full-stack e-commerce platform with real-time inventory management, AI-powered product recommendations, and secure payment processing. Features include user authentication, shopping cart, order tracking, and admin dashboard.",
+        //         technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API"],
+        //         image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        //     },
+        //     2: {
+        //         title: "FitPulse AI Trainer",
+        //         category: "Mobile App",
+        //         description: "AI-powered fitness application that provides real-time form correction, personalized workout plans, and progress tracking. Uses computer vision to analyze exercise form and provide feedback.",
+        //         technologies: ["React Native", "Firebase", "TensorFlow", "Python", "OpenCV"],
+        //         image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        //     },
+        //     3: {
+        //         title: "Nova Design System",
+        //         category: "UI/UX Design",
+        //         description: "Comprehensive design system with 200+ reusable components, accessibility features, dark/light modes, and comprehensive documentation. Built for scalability and consistency across products.",
+        //         technologies: ["Figma", "Storybook", "React", "TypeScript", "CSS Variables"],
+        //         image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        //     },
+        //     4: {
+        //         title: "CyberShield Dashboard",
+        //         category: "Security",
+        //         description: "Enterprise security dashboard with real-time threat monitoring, vulnerability scanning, incident response tracking, and compliance reporting. Integrates with multiple security tools and APIs.",
+        //         technologies: ["Python", "Django", "PostgreSQL", "Docker", "React", "WebSockets"],
+        //         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        //     },
+        //     5: {
+        //         title: "Aether AI Assistant",
+        //         category: "AI/ML",
+        //         description: "Conversational AI assistant with natural language processing capabilities, task automation, and multi-platform integration. Can understand context, learn from interactions, and perform complex tasks.",
+        //         technologies: ["Python", "OpenAI API", "FastAPI", "React", "MongoDB", "WebSockets"],
+        //         image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        //     }
+        // };
+
+        // // Add click handlers to project cards
+        // document.querySelectorAll('.project-card').forEach((card, index) => {
+        //     card.addEventListener('click', () => {
+        //         const projectId = index + 1;
+        //         const project = projects[projectId];
+                
+        //         // Update modal content
+        //         // modalImage.style.backgroundImage = `url('${project.image}')`;
+        //         // modalImage.innerHTML = ''; // Remove placeholder icon
+                
+        //         // modalContent.innerHTML = `
+        //         //     <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
+        //         //     <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-sm mb-4">${project.category}</div>
+        //         //     <p class="text-gray-300 mb-4">${project.description}</p>
+        //         //     <div class="mb-4">
+        //         //         <h4 class="font-bold mb-2">Technologies Used:</h4>
+        //         //         <div class="flex flex-wrap gap-2">
+        //         //             ${project.technologies.map(tech => 
+        //         //                 `<span class="px-3 py-1 bg-white/5 rounded-full text-sm">${tech}</span>`
+        //         //             ).join('')}
+        //         //         </div>
+        //         //     </div>
+        //         // `;
+                
+        //         // Show modal
+        //         projectModal.classList.remove('hidden');
+        //         document.body.style.overflow = 'hidden';
+                
+        //         // Haptic feedback
+        //         card.classList.add('haptic-feedback');
+        //         setTimeout(() => card.classList.remove('haptic-feedback'), 100);
+        //     });
+        // });
+
+        // // Close modal
+        // closeModal.addEventListener('click', () => {
+        //     projectModal.classList.add('hidden');
+        //     document.body.style.overflow = 'auto';
+        // });
+
+        // // Close modal when clicking outside
+        // projectModal.addEventListener('click', (e) => {
+        //     if (e.target === projectModal) {
+        //         projectModal.classList.add('hidden');
+        //         document.body.style.overflow = 'auto';
+        //     }
+        // });
+
+        // // Aggressive CTA button effects
+        // const ctaButton = document.querySelector('.cta-aggressive');
+        
+        // if (ctaButton) {
+        //     ctaButton.addEventListener('touchstart', () => {
+        //         ctaButton.style.transform = 'scale(0.95)';
+        //         ctaButton.style.boxShadow = '0 5px 20px rgba(220, 38, 38, 0.5)';
+        //     });
+            
+        //     ctaButton.addEventListener('touchend', () => {
+        //         setTimeout(() => {
+        //             ctaButton.style.transform = 'scale(1)';
+        //             ctaButton.style.boxShadow = '';
+        //         }, 150);
+        //     });
+        // }
+
+        // // Add floating elements for visual interest
+        // function createFloatingElements() {
+        //     const container = document.querySelector('main');
+        //     const floatingElements = [
+        //         { icon: 'fa-code', color: 'red' },
+        //         { icon: 'fa-bolt', color: 'yellow' },
+        //         { icon: 'fa-server', color: 'blue' },
+        //         { icon: 'fa-shield-alt', color: 'green' },
+        //         { icon: 'fa-rocket', color: 'purple' }
+        //     ];
+            
+        //     floatingElements.forEach((element, index) => {
+        //         const el = document.createElement('div');
+        //         el.className = `hidden md:block absolute text-${element.color}-500/20 text-3xl animate-float-mobile`;
+        //         el.innerHTML = `<i class="fas ${element.icon}"></i>`;
+                
+        //         // Random positioning
+        //         const left = 5 + Math.random() * 90;
+        //         const top = 10 + Math.random() * 80;
+        //         const delay = Math.random() * 5;
+                
+        //         el.style.left = `${left}%`;
+        //         el.style.top = `${top}%`;
+        //         el.style.animationDelay = `${delay}s`;
+                
+        //         container.appendChild(el);
+        //     });
+        // }
+        
+        // // Initialize when page loads
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     createFloatingElements();
+            
+        //     // Add loading animation to projects
+        //     setTimeout(() => {
+        //         document.querySelectorAll('.project-card').forEach((card, index) => {
+        //             setTimeout(() => {
+        //                 card.classList.add('animate-slide-up');
+        //             }, index * 100);
+        //         });
+        //     }, 300);
+        // });
+
+        // // Handle touch gestures for project cards
+        // let touchStartX = 0;
+        // let touchStartY = 0;
+        
+        // document.querySelectorAll('.project-card').forEach(card => {
+        //     card.addEventListener('touchstart', (e) => {
+        //         touchStartX = e.touches[0].clientX;
+        //         touchStartY = e.touches[0].clientY;
+        //     });
+            
+        //     card.addEventListener('touchmove', (e) => {
+        //         if (!touchStartX || !touchStartY) return;
+                
+        //         const touchEndX = e.touches[0].clientX;
+        //         const touchEndY = e.touches[0].clientY;
+                
+        //         const diffX = touchStartX - touchEndX;
+        //         const diffY = touchStartY - touchEndY;
+                
+        //         // Only apply tilt if mostly vertical movement
+        //         if (Math.abs(diffY) > Math.abs(diffX)) {
+        //             const tilt = diffY * 0.05;
+        //             card.style.transform = `perspective(1000px) rotateX(${tilt}deg)`;
+        //         }
+        //     });
+            
+        //     card.addEventListener('touchend', () => {
+        //         card.style.transform = '';
+        //         touchStartX = 0;
+        //         touchStartY = 0;
+        //     });
+        // });
+    </script>
+</body>
+</html>

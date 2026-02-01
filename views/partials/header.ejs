@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link  rel="icon" type="image/png" href="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab.jpg">
+  <title> RoX 3D Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  
+</head>
+  <style>
+    /* BODY BACKGROUND ANIMATION */
+    body {
+      background: linear-gradient(45deg, #000000, #918080, #000000);
+      background-size: 200% 200%;
+      animation: gradientBG 20s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* FLOATING ICON ANIMATIONS */
+    @keyframes float {0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+    .animate-float {animation: float 4s ease-in-out infinite;}
+    .animate-float-delay {animation: float 6s ease-in-out infinite;}
+
+    /* CARD HOVER EFFECTS */
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 25px rgba(255,0,0,0.4);
+    }
+
+    /* Infinite up-down animation */
+    @keyframes updown {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-updown {
+      animation: updown 3s ease-in-out infinite;
+    }
+    .animate-updown.delay-1s { animation-delay: 0.5s; }
+    .animate-updown.delay-2s { animation-delay: 1s; }
+    .animate-updown.delay-3s { animation-delay: 1.5s; }
+
+    /* Services vertical scroll (replacement for marquee) */
+    .services-scroll { overflow: hidden; max-height: 220px; position: relative; }
+    .services-track { display: flex; flex-direction: column; gap: 1rem; animation: scrollUp 12s linear infinite; }
+    /* pause on hover for better UX */
+    .services-scroll:hover .services-track { animation-play-state: paused; }
+    @keyframes scrollUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    /* Orbit containers */
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform-origin: center center;
+      border: 1.5px dashed rgba(255, 0, 0, 0.635);
+      animation: spin linear infinite;
+    }
+
+    .orbit .planet {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+
+    /* Orbit radii and speed */
+    .orbit1 { width: 180px; height: 180px; margin-left:-90px; margin-top:-90px; animation-duration: 8s; }
+    .orbit2 { width: 240px; height: 240px; margin-left:-120px; margin-top:-120px; animation-duration: 12s; border: 1.5px dashed rgba(60, 255, 0, 0.671); }
+    .orbit3 { width: 300px; height: 300px; margin-left:-150px; margin-top:-150px; animation-duration: 16s; }
+    .orbit4 { width: 360px; height: 360px; margin-left:-180px; margin-top:-180px; animation-duration: 40s; }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Planet base */
+    .planet {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border-radius: 50%;
+    }
+
+    /* Cleaned planet variants */
+    .planet.node { background: transparent; font-size: 35px; color: white; }
+    .planet.react { background: transparent; font-size: 35px; color: white; }
+    .planet.python { background: transparent; font-size: 30px; color: white; }
+    .planet.github { background: transparent; font-size: 30px; color: white; }
+
+    /* small responsive tweak */
+    @media (max-width: 640px) {
+      .services-scroll { max-height: 260px; }
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    /* Header scrolled style (desktop) — header stays fixed, no hide/translate */
+    @media (min-width: 768px) {
+      header {
+        transition: background 0.35s ease, box-shadow 0.35s ease;
+        will-change: background;
+      }
+      header.scrolled {
+        background: rgba(0,0,0,0.92) !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans overflow-x-hidden relative text-white">
+
+<!-- BACKGROUND FLOATING ICONS -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+  <i class="fas fa-code text-white/10 text-5xl absolute top-10 left-10 animate-float"></i>
+  <i class="fab fa-js-square text-yellow-400/20 text-6xl absolute top-32 right-20 animate-float-delay"></i>
+  <i class="fab fa-react text-sky-400/20 text-6xl absolute bottom-20 left-40 animate-float"></i>
+  <i class="fas fa-database text-red-600/20 text-5xl absolute bottom-10 right-10 animate-float-delay"></i>
+</div>
+
+<!-- HEADER -->
+<header class="w-full bg-black/90 border-b border-white/20 fixed top-0 left-0 p-2.5 z-50 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-white hover:text-red-600">Home</a>
+        <a href="/about" class="text-white hover:text-red-600">About</a>
+        <a href="/projects" class="text-white hover:text-red-600">Projects</a>
+        <a href="/contact" class="text-white hover:text-red-600">Contact</a>
+        <a href="/plan" class="text-white hover:text-red-600">Plan</a>
+      </nav>
+
+      <!-- Desktop Button -->
+      <a href="https://wa.me/8801749935208" class="hidden md:block bg-red-600 px-5 py-2 rounded-xl hover:bg-red-700">
+        Let’s Talk
+      </a>
+
+      <!-- Mobile Button -->
+      <button id="menuBtn" class="md:hidden text-white text-2xl" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE DROPDOWN MENU -->
+  <div id="mobileMenu"
+    class="md:hidden overflow-hidden max-h-0 opacity-0 bg-black border-t border-white/10 transition-all duration-500 ease-in-out" aria-hidden="true">
+
+    <div class="flex flex-col items-center gap-6 py-6">
+      <a href="/" class="mobile-link text-white text-lg hover:text-red-600">Home</a>
+      <a href="/about" class="mobile-link text-white text-lg hover:text-red-600">About</a>
+      <a href="/projects" class="mobile-link text-white text-lg hover:text-red-600">Projects</a>
+      <a href="/contact" class="mobile-link text-white text-lg hover:text-red-600">Contact</a>
+      <a href="/plan" class="mobile-link text-white text-lg hover:text-red-600">Plan</a>
+
+      <button class="bg-red-600 px-6 py-3 rounded-xl hover:bg-red-700">
+        Let’s Talk
+      </button>
+    </div>
+  </div>
+  <script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileLinks = document.querySelectorAll(".mobile-link");
+
+let isOpen = false;
+
+menuBtn.addEventListener("click", (e) => {
+  isOpen = !isOpen;
+  toggleMenu();
+  e.stopPropagation();
+});
+
+// Close on menu item click
+mobileLinks.forEach(link => {
+  link.addEventListener("click", closeMenu);
+});
+
+// Close on outside click
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+function toggleMenu() {
+  if (isOpen) {
+    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+    mobileMenu.classList.remove("opacity-0");
+    mobileMenu.classList.add("opacity-100");
+    mobileMenu.setAttribute("aria-hidden", "false");
+  } else {
+    closeMenu();
+  }
+}
+
+function closeMenu() {
+  isOpen = false;
+  mobileMenu.style.maxHeight = "0px";
+  mobileMenu.classList.remove("opacity-100");
+  mobileMenu.classList.add("opacity-0");
+  mobileMenu.setAttribute("aria-hidden", "true");
+}
+</script>
+
+<script>
+// Keep header fixed. Only toggle a subtle 'scrolled' class for background/shadow.
+(function(){
+  const headerEl = document.querySelector('header');
+  if (!headerEl) return;
+
+  function onScroll(){
+    const currentY = window.scrollY || 0;
+    if (currentY > 50) headerEl.classList.add('scrolled'); else headerEl.classList.remove('scrolled');
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', onScroll);
+})();
+</script>
+
+</header>
+
+

@@ -1,0 +1,21 @@
+</div>
+
+<footer class=" mt-12 py-5">
+  <div class="container mx-auto px-4 text-center">
+    <p class="text-white/70">© RoX Portfolio. All rights reserved.</p>
+    <p class="text-white/60 text-sm mt-2">Made with <i class="fas fa-heart text-red-500"></i> by RoX Sabil</p>
+  </div>
+</footer>
+
+<!-- GSAP ANIMATION -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".profile-img", {scale:0.8, opacity:0, duration:1, ease:"power3.out"});
+  gsap.from(".service-card", {scrollTrigger:{trigger:".services-scroll", start:"top 80%"}, y:40, opacity:0, duration:0.7, stagger:0.2, ease:"power3.out"});
+  gsap.from(".skill-item", {scrollTrigger:{trigger:".skills-list", start:"top 80%"}, x:-40, opacity:0, duration:0.6, stagger:0.2, ease:"power3.out"});
+  gsap.from(".project-card", {scrollTrigger:{trigger:".project-card", start:"top 85%"}, y:30, opacity:0, duration:0.7, stagger:0.2});
+  gsap.from(".aggressive-section", {scrollTrigger:{trigger:".aggressive-section", start:"top 80%"}, scale:0, rotation:720, opacity:0, duration:0.3, ease:"power4.out"});
+</script>
+</body>
+</html>

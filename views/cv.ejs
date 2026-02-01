@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon" type="image/png" href="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab.jpg">
+    <title>CV - RoX Sabil </title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            /* Improve touch targets */
+            button, a, .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better scrolling */
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+            border-radius: 3px;
+        }
+        
+        /* Aggressive Animations */
+        @keyframes cv-shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes badge-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes section-glow {
+            0%, 100% { box-shadow: 0 0 0 rgba(220, 38, 38, 0); }
+            50% { box-shadow: 0 0 30px rgba(220, 38, 38, 0.3); }
+        }
+        
+        @keyframes skill-bar-fill {
+            0% { width: 0%; }
+            100% { width: var(--skill-width); }
+        }
+        
+        @keyframes timeline-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .animate-cv-shake {
+            animation: cv-shake 0.5s;
+        }
+        
+        .animate-badge-spin {
+            animation: badge-spin 2s linear infinite;
+        }
+        
+        .animate-section-glow {
+            animation: section-glow 3s infinite;
+        }
+        
+        .animate-skill-bar {
+            animation: skill-bar-fill 1.5s ease-out forwards;
+        }
+        
+        .animate-timeline-pulse {
+            animation: timeline-pulse 2s infinite;
+        }
+        
+        /* Touch Feedback */
+        .aggressive-tap:active {
+            transform: scale(0.9) !important;
+            transition: transform 0.1s !important;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.5rem 0;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-nav-item.active {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+        }
+        
+        .mobile-nav-item:active {
+            background: rgba(220, 38, 38, 0.3);
+            transform: scale(0.9);
+        }
+        
+        /* Mobile Header */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* CV Section Cards */
+        .cv-section {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(0, 0, 0, 0.9));
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cv-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .cv-section:hover::before,
+        .cv-section:active::before {
+            transform: scaleX(1);
+        }
+        
+        .cv-section:active {
+            transform: scale(0.99);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Skill Bar */
+        .skill-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            animation: skill-shimmer 2s infinite;
+        }
+        
+        @keyframes skill-shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.2rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #dc2626;
+            border-radius: 50%;
+            border: 3px solid #000;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin: 0.25rem;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .badge-highlight {
+            background: linear-gradient(90deg, rgba(220, 38, 38, 0.2), rgba(147, 51, 234, 0.2));
+            border-color: #dc2626;
+        }
+        
+        /* Download Button */
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            border-radius: 15px;
+            font-weight: 700;
+            border: none;
+            width: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.5s;
+        }
+        
+        .download-button:hover::after,
+        .download-button:active::after {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+        
+        .download-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* CV Stats */
+        .cv-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .stat-item:active {
+            transform: scale(0.98);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Language Meter */
+        .language-meter {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .language-level {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .language-level-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .mobile-header,
+            .mobile-nav,
+            .mobile-menu,
+            .download-button,
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .cv-section {
+                border: 1px solid #ddd;
+                background: white;
+                break-inside: avoid;
+            }
+        }
+        
+        /* Mobile Section */
+        .mobile-section {
+            padding: 2rem 1rem;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Section Toggle */
+        .section-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .section-content.expanded {
+            max-height: 2000px;
+        }
+        
+        /* QR Code for CV */
+        .qr-container {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden scroll-smooth">
+    <!-- Mobile Header -->
+    <header class="mobile-header flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center">
+                <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+            </div>
+            <span class="text-lg font-bold">CV <span class="gradient-text">RESUME</span></span>
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <button id="printCV" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-print"></i>
+            </button>
+            <button id="menuToggle" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="p-6">
+            <!-- Menu Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center">
+                        <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">CV NAVIGATION</h2>
+                        <p class="text-gray-400 text-sm">Quick Sections</p>
+                    </div>
+                </div>
+                <button id="closeMenu" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Menu Links -->
+            <div class="space-y-2 mb-8">
+                <a href="/" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-home text-gray-400 w-6"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/about" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-user text-gray-400 w-6"></i>
+                    <span>About</span>
+                </a>
+                <a href="/projects" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-code text-gray-400 w-6"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/contact" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-comments text-gray-400 w-6"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="/plan" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-rocket text-gray-400 w-6"></i>
+                    <span>Plan</span>
+                </a>
+                <a href="/cv" class="flex items-center gap-4 p-4 rounded-xl bg-red-600/20 text-red-500 border-l-4 border-red-500">
+                    <i class="fas fa-file-alt text-red-500 w-6"></i>
+                    <span>CV</span>
+                </a>
+            </div>
+            
+            <!-- Quick Jump -->
+            <div class="mb-8">
+                <h3 class="text-gray-400 text-sm mb-4">JUMP TO SECTION</h3>
+                <div class="space-y-2">
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap section-jump" data-section="summary">
+                        <i class="fas fa-user mr-3"></i>
+                        Summary
+                    </button>
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap section-jump" data-section="experience">
+                        <i class="fas fa-briefcase mr-3"></i>
+                        Experience
+                    </button>
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap section-jump" data-section="skills">
+                        <i class="fas fa-code mr-3"></i>
+                        Skills
+                    </button>
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap section-jump" data-section="education">
+                        <i class="fas fa-graduation-cap mr-3"></i>
+                        Education
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Download Options -->
+            <div>
+                <h3 class="text-gray-400 text-sm mb-4">DOWNLOAD OPTIONS</h3>
+                <div class="space-y-2">
+                    <button class="w-full p-3 bg-red-600/20 text-red-500 rounded-xl aggressive-tap" id="menuDownload">
+                        <i class="fas fa-download mr-3"></i>
+                        Download PDF
+                    </button>
+                    <button class="w-full p-3 bg-white/5 rounded-xl aggressive-tap" id="shareCV">
+                        <i class="fas fa-share-alt mr-3"></i>
+                        Share CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-32">
+        <!-- Hero Section -->
+        <section class="mobile-section">
+            <div class="text-center mb-6">
+                <div class="w-32 h-32 mx-auto mb-4 rounded-full border-4 border-red-600 overflow-hidden">
+                    <img src="/img/sss.png" alt="RoX Sabil" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/ffffff?text=RX'">
+                </div>
+                <h1 class="text-3xl font-bold mb-2">RoX <span class="gradient-text">Sabil</span></h1>
+                <p class="text-xl text-gray-300 mb-4">Full-Stack Developer & Cyber Security Specialist</p>
+                
+                <div class="flex flex-wrap justify-center gap-2 mb-6">
+                    <span class="badge badge-highlight animate-timeline-pulse">
+                        <i class="fas fa-bolt mr-2"></i>5+ Years Experience
+                    </span>
+                    <span class="badge badge-highlight animate-timeline-pulse" style="animation-delay: 0.5s">
+                        <i class="fas fa-medal mr-2"></i>47+ Projects
+                    </span>
+                    <span class="badge badge-highlight animate-timeline-pulse" style="animation-delay: 1s">
+                        <i class="fas fa-shield-alt mr-2"></i>Cyber Security
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Download Button -->
+            <button class="download-button aggressive-tap mb-6" id="downloadCV">
+                <i class="fas fa-file-pdf mr-3"></i>
+                DOWNLOAD CV AS PDF
+            </button>
+            
+            <!-- Quick Stats -->
+            <div class="cv-stats">
+                <div class="stat-item">
+                    <div class="text-2xl font-bold text-red-500">5+</div>
+                    <div class="text-gray-400">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-2xl font-bold text-blue-500">47+</div>
+                    <div class="text-gray-400">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-2xl font-bold text-green-500">32+</div>
+                    <div class="text-gray-400">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-2xl font-bold text-purple-500">98%</div>
+                    <div class="text-gray-400">Success Rate</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Summary -->
+        <section id="summary" class="mobile-section">
+            <div class="cv-section animate-section-glow">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-user text-red-500"></i>
+                        Professional Summary
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content expanded">
+                    <p class="text-gray-300 mt-4">
+                        Passionate Full-Stack Developer with 5+ years of experience specializing in creating immersive digital experiences, 
+                        cyber security solutions, and scalable web applications. Proven track record of delivering 47+ successful projects 
+                        with a 98% client satisfaction rate.
+                    </p>
+                    <div class="mt-4">
+                        <h3 class="font-bold mb-2">Key Expertise:</h3>
+                        <ul class="list-disc pl-5 text-gray-300 space-y-1">
+                            <li>Full-Stack Web Development (React, Node.js, MongoDB)</li>
+                            <li>Cyber Security & Ethical Hacking</li>
+                            <li>UI/UX Design & 3D Animations</li>
+                            <li>Cloud Architecture (AWS, Azure)</li>
+                            <li>DevOps & CI/CD Pipelines</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience" class="mobile-section">
+            <div class="cv-section">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-briefcase text-blue-500"></i>
+                        Work Experience
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content expanded">
+                    <div class="timeline mt-4">
+                        <!-- Experience 1 -->
+                        <div class="timeline-item">
+                            <div class="cv-section" style="padding: 1rem; margin-bottom: 1rem;">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="text-lg font-bold">Cyber Security Specialist</h3>
+                                        <p class="text-gray-400">TechSecure Corp</p>
+                                    </div>
+                                    <span class="text-red-500 font-bold">2024 - Present</span>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-300 space-y-1">
+                                    <li>Implemented security protocols for enterprise systems</li>
+                                    <li>Conducted vulnerability assessments and penetration testing</li>
+                                    <li>Developed threat analysis frameworks</li>
+                                    <li>Reduced security incidents by 85%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="timeline-item">
+                            <div class="cv-section" style="padding: 1rem; margin-bottom: 1rem;">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="text-lg font-bold">Senior Full-Stack Developer</h3>
+                                        <p class="text-gray-400">Digital Nexus</p>
+                                    </div>
+                                    <span class="text-purple-500 font-bold">2023 - 2024</span>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-300 space-y-1">
+                                    <li>Led development of 15+ web applications</li>
+                                    <li>Architected scalable backend systems</li>
+                                    <li>Mentored junior developers</li>
+                                    <li>Improved application performance by 60%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div class="timeline-item">
+                            <div class="cv-section" style="padding: 1rem; margin-bottom: 1rem;">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 class="text-lg font-bold">Frontend Architect</h3>
+                                        <p class="text-gray-400">Creative Web Solutions</p>
+                                    </div>
+                                    <span class="text-blue-500 font-bold">2021 - 2023</span>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-300 space-y-1">
+                                    <li>Designed and implemented UI systems</li>
+                                    <li>Created interactive 3D animations</li>
+                                    <li>Built component libraries</li>
+                                    <li>Increased user engagement by 45%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills" class="mobile-section">
+            <div class="cv-section">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-code text-green-500"></i>
+                        Technical Skills
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content expanded">
+                    <div class="space-y-4 mt-4">
+                        <!-- Frontend Skills -->
+                        <div>
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fab fa-react text-cyan-500"></i>
+                                Frontend Development
+                            </h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>React & Next.js</span>
+                                        <span class="text-red-500 font-bold">98%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-cyan-600 to-cyan-400" style="--skill-width: 98%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>Vue.js</span>
+                                        <span class="text-red-500 font-bold">92%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-green-600 to-green-400" style="--skill-width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>Three.js & WebGL</span>
+                                        <span class="text-red-500 font-bold">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-purple-600 to-purple-400" style="--skill-width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Backend Skills -->
+                        <div>
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-server text-blue-500"></i>
+                                Backend Development
+                            </h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>Node.js & Express</span>
+                                        <span class="text-red-500 font-bold">96%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-green-600 to-green-400" style="--skill-width: 96%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>Python & Django</span>
+                                        <span class="text-red-500 font-bold">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-yellow-600 to-yellow-400" style="--skill-width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between">
+                                        <span>Database Design</span>
+                                        <span class="text-red-500 font-bold">94%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-bar-fill bg-gradient-to-r from-blue-600 to-blue-400" style="--skill-width: 94%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tools & Others -->
+                        <div>
+                            <h3 class="font-bold mb-2 flex items-center gap-2">
+                                <i class="fas fa-tools text-purple-500"></i>
+                                Tools & Technologies
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge">
+                                    <i class="fab fa-aws mr-2"></i>AWS
+                                </span>
+                                <span class="badge">
+                                    <i class="fab fa-docker mr-2"></i>Docker
+                                </span>
+                                <span class="badge">
+                                    <i class="fab fa-git-alt mr-2"></i>Git
+                                </span>
+                                <span class="badge">
+                                    <i class="fab fa-figma mr-2"></i>Figma
+                                </span>
+                                <span class="badge">
+                                    <i class="fas fa-shield-alt mr-2"></i>OWASP
+                                </span>
+                                <span class="badge">
+                                    <i class="fab fa-linux mr-2"></i>Linux
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section id="education" class="mobile-section">
+            <div class="cv-section">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-graduation-cap text-yellow-500"></i>
+                        Education & Certifications
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content expanded">
+                    <div class="space-y-4 mt-4">
+                        <!-- Education -->
+                        <div>
+                            <h3 class="font-bold mb-3">Education</h3>
+                            <div class="cv-section" style="padding: 1rem; margin-bottom: 1rem;">
+                                <h4 class="text-lg font-bold">Diploma of Computer Science</h4>
+                                <p class="text-gray-400">Tech University • 2024 - 2028</p>
+                                <p class="text-gray-300 mt-2">Specialization in Cyber Security and Web Technologies</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Certifications -->
+                        <div>
+                            <h3 class="font-bold mb-3">Certifications</h3>
+                            <div class="space-y-3">
+                                <div class="cv-section" style="padding: 1rem;">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-bold">Full Stack Developer</h4>
+                                            <p class="text-gray-400">Meta • 2023</p>
+                                        </div>
+                                        <span class="text-red-500 font-bold">VERIFIED</span>
+                                    </div>
+                                </div>
+                                <div class="cv-section" style="padding: 1rem;">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-bold">AWS Certified Solutions Architect</h4>
+                                            <p class="text-gray-400">Amazon • 2024</p>
+                                        </div>
+                                        <span class="text-blue-500 font-bold">ACTIVE</span>
+                                    </div>
+                                </div>
+                                <div class="cv-section" style="padding: 1rem;">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <h4 class="font-bold">Certified Ethical Hacker</h4>
+                                            <p class="text-gray-400">EC-Council • 2024</p>
+                                        </div>
+                                        <span class="text-green-500 font-bold">ELITE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="mobile-section">
+            <div class="cv-section">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-language text-cyan-500"></i>
+                        Languages
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content expanded">
+                    <div class="space-y-4 mt-4">
+                        <div class="language-meter">
+                            <span class="w-24">English</span>
+                            <div class="language-level">
+                                <div class="language-level-fill bg-gradient-to-r from-red-600 to-red-400" style="width: 100%"></div>
+                            </div>
+                            <span class="text-gray-400">Native</span>
+                        </div>
+                        <div class="language-meter">
+                            <span class="w-24">Spanish</span>
+                            <div class="language-level">
+                                <div class="language-level-fill bg-gradient-to-r from-blue-600 to-blue-400" style="width: 80%"></div>
+                            </div>
+                            <span class="text-gray-400">Fluent</span>
+                        </div>
+                        <div class="language-meter">
+                            <span class="w-24">Japanese</span>
+                            <div class="language-level">
+                                <div class="language-level-fill bg-gradient-to-r from-green-600 to-green-400" style="width: 60%"></div>
+                            </div>
+                            <span class="text-gray-400">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="mobile-section">
+            <div class="cv-section animate-section-glow" style="animation-delay: 1s">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <i class="fas fa-address-card text-red-500"></i>
+                    Contact Information
+                </h2>
+                
+                <div class="space-y-3">
+                    <div class="contact-info aggressive-tap" onclick="window.location.href='mailto:rox@sabil.dev'">
+                        <div class="w-10 h-10 bg-red-600/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-envelope text-red-500"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Email</p>
+                            <p class="font-bold">roxsabil25@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info aggressive-tap" onclick="window.location.href='tel:+15551234567'">
+                        <div class="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center">
+                             <i class="fa-brands fa-whatsapp text-green-500 text-3xl"></i>
+                        </div>
+                        <a href="https://wa.me/8801749935208">
+                            <div>
+                            <p class="text-gray-400">WhatsApp</p>
+                            <p class="font-bold">+8801749935208</p>
+                        </div>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-info aggressive-tap" onclick="window.open('https://maps.google.com', '_blank')">
+                        <div class="w-10 h-10 bg-purple-600/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-purple-500"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400">Location</p>
+                            <p class="font-bold">Available worldwide  • BST Timezone</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info aggressive-tap" onclick="window.open('https://linkedin.com', '_blank')">
+                        <div class="w-10 h-10 bg-cyan-600/20 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-linkedin text-cyan-500"></i>
+                        </div>
+                        <a href="https://www.linkedin.com/in/rox-sabil-0042631ba/">
+                            <div>
+                            <p class="text-gray-400">LinkedIn</p>
+                            <p class="font-bold">Rox Sabil</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- QR Code for CV -->
+                <div class="mt-6 text-center">
+                    <h3 class="font-bold mb-3">Scan to Download CV</h3>
+                    <div class="qr-container mx-auto">
+                        <div class="text-center">
+                            <div class="text-4xl mb-2">RX</div>
+                            <div class="text-xs">CV CODE</div>
+                            <div class="text-xs mt-1">rox.sabil.dev/cv</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section class="mobile-section no-print">
+            <div class="cv-section">
+                <div class="section-toggle">
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fas fa-users text-purple-500"></i>
+                        References
+                    </h2>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+                <div class="section-content">
+                    <p class="text-gray-300 mt-4">Available upon request. Please contact via email or phone.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-6">
+                <a href="/" class="mobile-nav-item">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="text-xs mt-1">Home</span>
+                </a>
+                <a href="/about" class="mobile-nav-item">
+                    <i class="fas fa-user text-lg"></i>
+                    <span class="text-xs mt-1">About</span>
+                </a>
+                <a href="/projects" class="mobile-nav-item">
+                    <i class="fas fa-code text-lg"></i>
+                    <span class="text-xs mt-1">Projects</span>
+                </a>
+                <a href="/contact" class="mobile-nav-item">
+                    <i class="fas fa-comments text-lg"></i>
+                    <span class="text-xs mt-1">Contact</span>
+                </a>
+                <a href="/plan" class="mobile-nav-item">
+                    <i class="fas fa-rocket text-lg"></i>
+                    <span class="text-xs mt-1">Plan</span>
+                </a>
+                <a href="/cv" class="mobile-nav-item active">
+                    <i class="fas fa-file-alt text-lg text-red-500"></i>
+                    <span class="text-xs mt-1 text-red-500">CV</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            animateButton(menuToggle);
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+            animateButton(closeMenu);
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Section jump from menu
+        document.querySelectorAll('.section-jump').forEach(button => {
+            button.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                const sectionElement = document.getElementById(sectionId);
+                
+                if (sectionElement) {
+                    window.scrollTo({
+                        top: sectionElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+                animateButton(this);
+                
+                // Add shake animation to section
+                if (sectionElement) {
+                    sectionElement.classList.add('animate-cv-shake');
+                    setTimeout(() => {
+                        sectionElement.classList.remove('animate-cv-shake');
+                    }, 500);
+                }
+            });
+        });
+        
+        // Section toggle functionality
+        document.querySelectorAll('.section-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.classList.add('expanded');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+                
+                animateButton(this);
+            });
+        });
+        
+        // Download CV button
+        document.getElementById('downloadCV').addEventListener('click', function() {
+            // Show loading state
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> GENERATING PDF...';
+            this.disabled = true;
+            
+            // Simulate PDF generation
+            setTimeout(() => {
+                alert('CV PDF generated successfully! Download starting...');
+                this.innerHTML = originalHTML;
+                this.disabled = false;
+                
+                // Trigger shake animation on all sections
+                document.querySelectorAll('.cv-section').forEach(section => {
+                    section.classList.add('animate-cv-shake');
+                    setTimeout(() => {
+                        section.classList.remove('animate-cv-shake');
+                    }, 500);
+                });
+                
+                // Animate skill bars
+                document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    bar.style.animation = 'none';
+                    setTimeout(() => {
+                        bar.style.animation = '';
+                    }, 100);
+                });
+            }, 1500);
+            
+            animateButton(this);
+        });
+        
+        // Menu download button
+        document.getElementById('menuDownload').addEventListener('click', function() {
+            document.getElementById('downloadCV').click();
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+            animateButton(this);
+        });
+        
+        // Share CV button
+        document.getElementById('shareCV').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'RoX Sabil - CV/Resume',
+                    text: 'Check out my professional CV/Resume',
+                    url: window.location.href
+                });
+            } else {
+                alert('CV link copied to clipboard!');
+                navigator.clipboard.writeText(window.location.href);
+            }
+            animateButton(this);
+        });
+        
+        // Print CV button
+        document.getElementById('printCV').addEventListener('click', function() {
+            window.print();
+            animateButton(this);
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-bar-fill');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBar = entry.target;
+                    skillBar.style.width = '0%';
+                    
+                    setTimeout(() => {
+                        skillBar.style.width = skillBar.style.getPropertyValue('--skill-width');
+                    }, 300);
+                    
+                    observer.unobserve(skillBar);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+        
+        // Button animation
+        function animateButton(button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 100);
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill bars on page load for visible ones
+            setTimeout(() => {
+                document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    bar.classList.add('animate-skill-bar');
+                });
+            }, 500);
+            
+            // Animate all badges
+            document.querySelectorAll('.badge-highlight').forEach((badge, index) => {
+                badge.style.animationDelay = `${index * 0.5}s`;
+            });
+            
+            // Add click animation to contact info
+            document.querySelectorAll('.contact-info').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.add('animate-cv-shake');
+                    setTimeout(() => {
+                        this.classList.remove('animate-cv-shake');
+                    }, 500);
+                });
+            });
+            
+            // Auto-expand first section if collapsed
+            const firstSection = document.querySelector('.section-content');
+            if (firstSection && !firstSection.classList.contains('expanded')) {
+                firstSection.classList.add('expanded');
+                const icon = firstSection.previousElementSibling.querySelector('.fa-chevron-down');
+                if (icon) {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            }
+            
+            // Add floating particles animation
+            createFloatingParticles();
+        });
+        
+        // Create floating particles
+        function createFloatingParticles() {
+            const container = document.querySelector('main');
+            const particles = 6;
+            
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'absolute w-1 h-1 rounded-full hidden md:block';
+                
+                // Random gradient color
+                const gradients = [
+                    'linear-gradient(45deg, #dc2626, #9333ea)',
+                    'linear-gradient(45deg, #3b82f6, #8b5cf6)',
+                    'linear-gradient(45deg, #10b981, #3b82f6)',
+                    'linear-gradient(45deg, #f59e0b, #dc2626)'
+                ];
+                
+                particle.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+                particle.style.opacity = '0.3';
+                
+                // Random positioning
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const duration = 4 + Math.random() * 4;
+                const delay = Math.random() * 5;
+                
+                particle.style.left = `${left}%`;
+                particle.style.top = `${top}%`;
+                particle.style.animation = `float 6s ease-in-out infinite`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Add float animation if not exists
+                if (!document.querySelector('style[data-float-animation]')) {
+                    const style = document.createElement('style');
+                    style.setAttribute('data-float-animation', 'true');
+                    style.textContent = `
+                        @keyframes float {
+                            0%, 100% { transform: translateY(0) rotate(0deg); }
+                            33% { transform: translateY(-10px) rotate(5deg); }
+                            66% { transform: translateY(5px) rotate(-5deg); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Refresh animations
+                document.querySelectorAll('.animate-section-glow').forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+            }, 300);
+        });
+        
+        // Touch feedback for all interactive elements
+        document.addEventListener('touchstart', function() {}, { passive: true });
+    </script>
+</body>
+</html>

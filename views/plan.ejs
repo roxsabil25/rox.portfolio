@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon" type="image/png" href="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab.jpg">
+    <title>Plan - RoX Sabil</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            /* Improve touch targets */
+            button, a, .touch-target {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better scrolling */
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #dc2626, #9333ea);
+            border-radius: 3px;
+        }
+        
+        /* Aggressive Animations */
+        @keyframes rocket-launch {
+            0% { transform: translateY(0) rotate(0deg); }
+            30% { transform: translateY(-20px) rotate(-5deg); }
+            60% { transform: translateY(-40px) rotate(5deg); }
+            100% { transform: translateY(-100vh) rotate(0deg); }
+        }
+        
+        @keyframes price-shake {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.05) rotate(2deg); }
+            75% { transform: scale(1.05) rotate(-2deg); }
+        }
+        
+        @keyframes gradient-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes feature-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(220, 38, 38, 0); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+        }
+        
+        @keyframes countdown-flash {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+        
+        .animate-rocket-launch {
+            animation: rocket-launch 2s forwards;
+        }
+        
+        .animate-price-shake {
+            animation: price-shake 0.5s;
+        }
+        
+        .animate-gradient-blink {
+            animation: gradient-blink 2s infinite;
+        }
+        
+        .animate-feature-pulse {
+            animation: feature-pulse 2s infinite;
+        }
+        
+        .animate-countdown-flash {
+            animation: countdown-flash 1s infinite;
+        }
+        
+        /* Touch Feedback */
+        .aggressive-tap:active {
+            transform: scale(0.9) !important;
+            transition: transform 0.1s !important;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.5rem 0;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-nav-item.active {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+        }
+        
+        .mobile-nav-item:active {
+            background: rgba(220, 38, 38, 0.3);
+            transform: scale(0.9);
+        }
+        
+        /* Mobile Header */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Plan Cards */
+        .plan-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(0, 0, 0, 0.9));
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .plan-card.popular {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #dc2626, #9333ea) 1;
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(220, 38, 38, 0.1), rgba(147, 51, 234, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .plan-card:hover::before,
+        .plan-card:active::before {
+            opacity: 1;
+        }
+        
+        .plan-card:active {
+            transform: scale(0.97);
+        }
+        
+        .plan-card.popular:active {
+            transform: scale(1.02);
+        }
+        
+        /* Ribbon for Popular Plan */
+        .popular-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(45deg, #dc2626, #9333ea);
+            color: white;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Plan Feature */
+        .plan-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(34, 197, 94, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-cross {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* Plan Button */
+        .plan-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            border: none;
+            width: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.5s;
+        }
+        
+        .plan-button:hover::after,
+        .plan-button:active::after {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+        
+        /* Comparison Table */
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-row.header {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px 10px 0 0;
+        }
+        
+        /* Countdown Timer */
+        .countdown-timer {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.5rem;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* Progress Bar */
+        .plan-progress {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .plan-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-out;
+        }
+        
+        /* FAQ Item */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item.active {
+            background: rgba(220, 38, 38, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1rem 1rem;
+            max-height: 500px;
+        }
+        
+        /* Payment Methods */
+        .payment-method {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .payment-method.active {
+            background: linear-gradient(45deg, rgba(220, 38, 38, 0.2), rgba(147, 51, 234, 0.2));
+            border: 2px solid #dc2626;
+        }
+        
+        /* Mobile Section */
+        .mobile-section {
+            padding: 2rem 1rem;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Rocket Animation Container */
+        .rocket-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .rocket {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: #dc2626;
+        }
+        
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        /* Stats Counter */
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #dc2626, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Limited Offer Badge */
+        .limited-badge {
+            background: linear-gradient(45deg, #dc2626, #9333ea);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: gradient-blink 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden scroll-smooth">
+    <!-- Mobile Header -->
+    <header class="mobile-header flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center animate-gradient-blink">
+                <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+            </div>
+            <span class="text-lg font-bold">PLAN <span class="gradient-text">SELECT</span></span>
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <button id="timerToggle" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-clock"></i>
+            </button>
+            <button id="menuToggle" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="p-6">
+            <!-- Menu Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12  rounded-xl flex items-center justify-center">
+                        <img src="/img/WhatsApp Image 2024-11-13 at 10.57.50_e7f206ab - Copy.jpg" alt="RoX Logo" class="w-16 rounded-full" />
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">MISSION CONTROL</h2>
+                        <p class="text-gray-400 text-sm">Select Your Plan</p>
+                    </div>
+                </div>
+                <button id="closeMenu" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center aggressive-tap">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Menu Links -->
+            <div class="space-y-2 mb-8">
+                <a href="/" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-home text-gray-400 w-6"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/about" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-user text-gray-400 w-6"></i>
+                    <span>About</span>
+                </a>
+                <a href="/projects" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-code text-gray-400 w-6"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="/contact" class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 active:bg-red-600/20 transition-all aggressive-tap">
+                    <i class="fas fa-comments text-gray-400 w-6"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="/plan" class="flex items-center gap-4 p-4 rounded-xl bg-red-600/20 text-red-500 border-l-4 border-red-500">
+                    <i class="fas fa-rocket text-red-500 w-6"></i>
+                    <span>Plan</span>
+                </a>
+            </div>
+            
+            <!-- Plan Stats -->
+            <div class="mb-8">
+                <h3 class="text-gray-400 text-sm mb-4">PLAN STATS</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white/5 p-3 rounded-xl">
+                        <div class="text-2xl font-bold gradient-text">87%</div>
+                        <div class="text-gray-400 text-sm">Choose Pro</div>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl">
+                        <div class="text-2xl font-bold gradient-text">24h</div>
+                        <div class="text-gray-400 text-sm">Avg. Delivery</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Jump -->
+            <div class="mb-8">
+                <h3 class="text-gray-400 text-sm mb-4">QUICK JUMP</h3>
+                <div class="space-y-2">
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap" data-scroll="plans">
+                        <i class="fas fa-layer-group mr-3"></i>
+                        View Plans
+                    </button>
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap" data-scroll="comparison">
+                        <i class="fas fa-balance-scale mr-3"></i>
+                        Compare Plans
+                    </button>
+                    <button class="w-full text-left p-3 bg-white/5 rounded-xl aggressive-tap" data-scroll="faq">
+                        <i class="fas fa-question-circle mr-3"></i>
+                        FAQ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rocket Animation Container -->
+    <div id="rocketContainer" class="rocket-container">
+        <div class="rocket">
+            <i class="fas fa-rocket"></i>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="bg-gradient-to-b from-gray-900 to-black rounded-3xl p-8 max-w-md w-full border-2 border-red-500">
+            <div class="text-center">
+                <div class="w-24 h-24 bg-gradient-to-br from-green-600 to-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-white text-4xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-4 gradient-text">MISSION LAUNCHED!</h3>
+                <p class="text-gray-300 mb-6">Your plan has been activated. Prepare for liftoff in 3...2...1...</p>
+                <div class="mb-6 p-4 bg-white/5 rounded-xl">
+                    <div class="text-sm text-gray-400">ORDER ID</div>
+                    <div class="font-mono font-bold">RX-<span id="orderId"></span></div>
+                </div>
+                <button id="closeSuccess" class="plan-button aggressive-tap" style="background: linear-gradient(90deg, #dc2626, #9333ea);">
+                    <i class="fas fa-home mr-3"></i>
+                    BACK TO CONTROL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-32">
+        <!-- Hero Section -->
+        <section class="mobile-section">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold mb-4">
+                    <span class="gradient-text">CHOOSE YOUR</span> MISSION
+                </h1>
+                <p class="text-gray-300 mb-6">Select a plan that matches your ambition. Every mission comes with explosive results.</p>
+                
+                <!-- Limited Time Offer -->
+                <div class="mb-6">
+                    <div class="limited-badge inline-block mb-2">
+                        <i class="fas fa-bolt"></i>
+                        LIMITED TIME OFFER
+                    </div>
+                    <p class="text-sm text-gray-400">40% OFF on annual plans • Ends in:</p>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div id="countdownTimer" class="countdown-timer mb-8">
+                    <div class="countdown-unit">
+                        <div class="text-2xl font-bold" id="countdown-hours">24</div>
+                        <div class="text-xs text-gray-400">HOURS</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="text-2xl font-bold" id="countdown-minutes">59</div>
+                        <div class="text-xs text-gray-400">MINUTES</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="text-2xl font-bold" id="countdown-seconds">59</div>
+                        <div class="text-xs text-gray-400">SECONDS</div>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-3 mb-8">
+                    <div class="bg-white/5 p-3 rounded-xl">
+                        <span class="stats-counter" id="clients-counter">0 </span><i class="fa-solid fa-plus"></i>
+
+                        <div class="text-gray-400 text-sm">Clients</div>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl">
+                        <span class="stats-counter" id="projects-counter">0 </span><i class="fa-solid fa-plus"></i>
+                        <div class="text-gray-400 text-sm">Projects</div>
+                    </div>
+                    <div class="bg-white/5 p-3 rounded-xl">
+                        <span class="stats-counter" id="success-counter">0 </span><i class="fa-solid fa-percent"></i>
+                        <div class="text-gray-400 text-sm">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans Grid -->
+        <section id="plans" class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">
+                <span class="gradient-text">MISSION PLANS</span>
+            </h2>
+            
+            <div class="space-y-6">
+                <!-- Basic Plan -->
+                <div class="plan-card aggressive-tap" data-plan="basic">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">BASIC</h3>
+                        <p class="text-gray-400 mb-4">For startups testing the waters</p>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-4xl font-bold gradient-text">$120</span>
+                            <span class="text-gray-400">/project</span>
+                        </div>
+                        <div class="text-sm text-gray-400">One-time payment</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>5 Page Website</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Mobile Responsive</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Basic SEO</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-cross">
+                                <i class="fas fa-times text-red-500 text-xs"></i>
+                            </div>
+                            <span class="text-gray-500">E-commerce</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-cross">
+                                <i class="fas fa-times text-red-500 text-xs"></i>
+                            </div>
+                            <span class="text-gray-500">24/7 Support</span>
+                        </div>
+                    </div>
+                    
+                    <button class="plan-button aggressive-tap" style="background: rgba(255, 255, 255, 0.1);">
+                        <i class="fas fa-rocket mr-3"></i>
+                        SELECT BASIC
+                    </button>
+                </div>
+                
+                <!-- Pro Plan (Popular) -->
+                <div class="plan-card popular aggressive-tap" data-plan="pro">
+                    <div class="popular-ribbon">POPULAR</div>
+                    
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">PRO</h3>
+                        <p class="text-gray-400 mb-4">For growing businesses</p>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-4xl font-bold gradient-text">$250</span>
+                            <span class="text-gray-400">/project</span>
+                        </div>
+                        <div class="text-sm text-gray-400">Save 20% on annual</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="plan-feature animate-feature-pulse">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>10+ Page Website</span>
+                        </div>
+                        <div class="plan-feature animate-feature-pulse" style="animation-delay: 0.2s">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>E-commerce work's</span>
+                        </div>
+                        <div class="plan-feature animate-feature-pulse" style="animation-delay: 0.4s">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Advanced SEO</span>
+                        </div>
+                        <div class="plan-feature animate-feature-pulse" style="animation-delay: 0.6s">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>$5 / Custom Features </span>
+                        </div>
+                        <div class="plan-feature animate-feature-pulse" style="animation-delay: 0.8s">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>1.5 Months Support</span>
+                        </div>
+                    </div>
+                    
+                    <button class="plan-button aggressive-tap" style="background: linear-gradient(90deg, #dc2626, #9333ea);">
+                        <i class="fas fa-fire mr-3"></i>
+                        SELECT PRO
+                    </button>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="plan-card aggressive-tap" data-plan="enterprise">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">ENTERPRISE</h3>
+                        <p class="text-gray-400 mb-4">For large scale operations</p>
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <span class="text-4xl font-bold gradient-text">$1,799</span>
+                            <span class="text-gray-400">/project</span>
+                        </div>
+                        <div class="text-sm text-gray-400">Custom pricing available</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Unlimited Pages</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Full E-commerce</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>AI Integration</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>Custom Development</span>
+                        </div>
+                        <div class="plan-feature">
+                            <div class="feature-check">
+                                <i class="fas fa-check text-green-500 text-xs"></i>
+                            </div>
+                            <span>4 Months Support</span>
+                        </div>
+                    </div>
+                    
+                    <button class="plan-button aggressive-tap" style="background: rgba(255, 255, 255, 0.1);">
+                        <i class="fas fa-crown mr-3"></i>
+                        SELECT ENTERPRISE
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Custom Plan -->
+            <div class="mt-8 text-center">
+                <div class="bg-gradient-to-r from-black/50 to-gray-900/50 rounded-2xl p-6 border-2 border-dashed border-white/20">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">NEED SOMETHING CUSTOM?</h3>
+                    <p class="text-gray-300 mb-4">Let's build a plan tailored to your specific mission requirements.</p>
+                    <button id="customPlanBtn" class="plan-button aggressive-tap" style="background: linear-gradient(90deg, #000000, #1a1a1a); border: 2px solid #dc2626;">
+                        <i class="fas fa-wrench mr-3"></i>
+                        BUILD CUSTOM PLAN
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section id="comparison" class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">
+                <span class="gradient-text">MISSION COMPARISON</span>
+            </h2>
+            
+            <div class="bg-white/5 rounded-xl overflow-hidden">
+                <div class="comparison-row header">
+                    <div class="font-bold">FEATURES</div>
+                    <div class="text-center w-20">BASIC</div>
+                    <div class="text-center w-20 gradient-text font-bold">PRO</div>
+                    <div class="text-center w-20">ENTERPRISE</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>Pages</div>
+                    <div class="text-center">5</div>
+                    <div class="text-center gradient-text font-bold">Unlimited</div>
+                    <div class="text-center">Unlimited</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>Delivery Time</div>
+                    <div class="text-center">7-10 days</div>
+                    <div class="text-center gradient-text font-bold">10-12 days</div>
+                    <div class="text-center">Custom</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>Revisions</div>
+                    <div class="text-center">2</div>
+                    <div class="text-center gradient-text font-bold">5</div>
+                    <div class="text-center">Unlimited</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>Support</div>
+                    <div class="text-center">15 days</div>
+                    <div class="text-center gradient-text font-bold">1.5 months</div>
+                    <div class="text-center">4 months</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>SEO Optimization</div>
+                    <div class="text-center"><i class="fas fa-check text-green-500"></i></div>
+                    <div class="text-center gradient-text font-bold"><i class="fas fa-check text-green-500"></i></div>
+                    <div class="text-center"><i class="fas fa-check text-green-500"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>E-commerce</div>
+                    <div class="text-center"><i class="fas fa-times text-red-500"></i></div>
+                    <div class="text-center gradient-text font-bold"><i class="fas fa-check text-green-500"></i></div>
+                    <div class="text-center"><i class="fas fa-check text-green-500"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div>Mobile App</div>
+                    <div class="text-center"><i class="fas fa-times text-red-500"></i></div>
+                    <div class="text-center"><i class="fas fa-times text-red-500"></i></div>
+                    <div class="text-center gradient-text font-bold"><i class="fas fa-times text-red-500"></i></div>
+                </div>
+            </div>
+            
+            <!-- Progress Bars -->
+            <div class="mt-8">
+                <div class="mb-4">
+                    <div class="flex justify-between mb-2">
+                        <span>Basic Plan Capacity</span>
+                        <span class="text-red-500 font-bold">60%</span>
+                    </div>
+                    <div class="plan-progress">
+                        <div class="plan-progress-fill bg-gradient-to-r from-red-600 to-red-400" style="width: 60%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="flex justify-between mb-2">
+                        <span>Pro Plan Capacity</span>
+                        <span class="text-purple-500 font-bold">87%</span>
+                    </div>
+                    <div class="plan-progress">
+                        <div class="plan-progress-fill bg-gradient-to-r from-purple-600 to-purple-400" style="width: 87%"></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span>Enterprise Plan Capacity</span>
+                        <span class="text-blue-500 font-bold">45%</span>
+                    </div>
+                    <div class="plan-progress">
+                        <div class="plan-progress-fill bg-gradient-to-r from-blue-600 to-blue-400" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods -->
+        <section class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">
+                <span class="gradient-text">PAYMENT OPTIONS</span>
+            </h2>
+            
+            <div class="flex justify-center gap-4 mb-6">
+                <div class="payment-method aggressive-tap active">
+                    <i class="fab fa-cc-stripe text-2xl"></i>
+                </div>
+                <div class="payment-method aggressive-tap">
+                    <i class="fab fa-cc-paypal text-2xl"></i>
+                </div>
+                <div class="payment-method aggressive-tap">
+                    <i class="fab fa-bitcoin text-2xl"></i>
+                </div>
+                <div class="payment-method aggressive-tap">
+                    <i class="fas fa-university text-2xl"></i>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-400">
+                <p class="mb-2">All payments secured with 256-bit SSL encryption</p>
+                <p class="text-sm">30-day money-back guarantee on all plans</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="mobile-section">
+            <h2 class="text-2xl font-bold mb-6 text-center">
+                <span class="gradient-text">MISSION FAQ</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="faq-item aggressive-tap">
+                    <div class="faq-question">
+                        <span>How long does delivery take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Basic: 7-10 days, Pro: 10-12 days, Enterprise: Custom timeline based on requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item aggressive-tap">
+                    <div class="faq-question">
+                        <span>Can I upgrade my plan later?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Yes! You can upgrade anytime. We'll prorate the difference and apply it to your new plan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item aggressive-tap">
+                    <div class="faq-question">
+                        <span>Do you offer refunds?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">We offer a 30-day money-back guarantee if you're not satisfied with our service.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item aggressive-tap">
+                    <div class="faq-question">
+                        <span>What's included in support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Support includes bug fixes, minor updates, and technical assistance during business hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item aggressive-tap">
+                    <div class="faq-question">
+                        <span>Can I request custom features?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-300">Custom features are available in Pro and Enterprise plans. Additional costs may apply.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="mobile-section">
+            <div class="bg-gradient-to-r from-black/50 to-gray-900/50 rounded-3xl p-6 border-2 border-red-500 text-center">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">READY FOR LIFTOFF?</h3>
+                <p class="text-gray-300 mb-6">Join 500+ successful missions. Your project deserves explosive results.</p>
+                
+                <div class="flex gap-4">
+                    <button id="finalCta" class="plan-button aggressive-tap flex-1" style="background: linear-gradient(90deg, #dc2626, #9333ea);">
+                        <i class="fas fa-rocket mr-3"></i>
+                        LAUNCH NOW
+                    </button>
+                    
+                    <button id="scheduleCall" class="plan-button aggressive-tap flex-1" style="background: rgba(255, 255, 255, 0.1);">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        SCHEDULE CALL
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-5">
+                <a href="/" class="mobile-nav-item">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="text-xs mt-1">Home</span>
+                </a>
+                <a href="/about" class="mobile-nav-item">
+                    <i class="fas fa-user text-lg"></i>
+                    <span class="text-xs mt-1">About</span>
+                </a>
+                <a href="/projects" class="mobile-nav-item">
+                    <i class="fas fa-code text-lg"></i>
+                    <span class="text-xs mt-1">Projects</span>
+                </a>
+                <a href="/contact" class="mobile-nav-item">
+                    <i class="fas fa-comments text-lg"></i>
+                    <span class="text-xs mt-1">Contact</span>
+                </a>
+                <a href="/plan" class="mobile-nav-item active">
+                    <i class="fas fa-rocket text-lg text-red-500"></i>
+                    <span class="text-xs mt-1 text-red-500">Plan</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            animateButton(menuToggle);
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+            animateButton(closeMenu);
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Quick jump buttons
+        document.querySelectorAll('[data-scroll]').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-scroll');
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+                animateButton(this);
+            });
+        });
+        
+        // Plan selection
+        const planCards = document.querySelectorAll('.plan-card');
+        let selectedPlan = 'pro'; // Default selected
+        
+        planCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const plan = this.getAttribute('data-plan');
+                selectedPlan = plan;
+                
+                // Remove all selections
+                planCards.forEach(c => {
+                    c.style.border = '2px solid rgba(255, 255, 255, 0.1)';
+                    c.querySelector('.plan-button').style.background = 'rgba(255, 255, 255, 0.1)';
+                });
+                
+                // Highlight selected
+                this.style.border = '2px solid #dc2626';
+                this.querySelector('.plan-button').style.background = 'linear-gradient(90deg, #dc2626, #9333ea)';
+                
+                // Shake animation for price
+                const priceElement = this.querySelector('.gradient-text');
+                priceElement.classList.add('animate-price-shake');
+                setTimeout(() => {
+                    priceElement.classList.remove('animate-price-shake');
+                }, 500);
+                
+                animateButton(this);
+            });
+        });
+        
+        // Custom plan button
+        document.getElementById('customPlanBtn').addEventListener('click', function() {
+            showRocketAnimation();
+            setTimeout(() => {
+                document.getElementById('successModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                document.getElementById('orderId').textContent = 'CUST-' + Math.floor(Math.random() * 1000);
+            }, 2000);
+            animateButton(this);
+        });
+        
+        // Plan buttons
+        document.querySelectorAll('.plan-button').forEach(button => {
+            if (!button.id) { // Exclude special buttons
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    showRocketAnimation();
+                    setTimeout(() => {
+                        document.getElementById('successModal').style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                        document.getElementById('orderId').textContent = 'RX-' + Math.floor(Math.random() * 1000);
+                    }, 2000);
+                    animateButton(this);
+                });
+            }
+        });
+        
+        // Final CTA button
+        document.getElementById('finalCta').addEventListener('click', function() {
+            showRocketAnimation();
+            setTimeout(() => {
+                document.getElementById('successModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                document.getElementById('orderId').textContent = 'FINAL-' + Math.floor(Math.random() * 1000);
+            }, 2000);
+            animateButton(this);
+        });
+        
+        // Schedule call button
+        document.getElementById('scheduleCall').addEventListener('click', function() {
+            alert('Redirecting to calendar scheduling...');
+            animateButton(this);
+        });
+        
+        // Close success modal
+        document.getElementById('closeSuccess').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            animateButton(this);
+        });
+        
+        // Payment methods
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+                animateButton(this);
+            });
+        });
+        
+        // FAQ toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                // Toggle current item
+                if (!isActive) {
+                    this.classList.add('active');
+                }
+                
+                animateButton(this);
+            });
+        });
+        
+        // Timer toggle
+        let timerVisible = true;
+        document.getElementById('timerToggle').addEventListener('click', function() {
+            const timer = document.getElementById('countdownTimer');
+            if (timerVisible) {
+                timer.style.display = 'none';
+                this.innerHTML = '<i class="fas fa-clock-slash"></i>';
+            } else {
+                timer.style.display = 'flex';
+                this.innerHTML = '<i class="fas fa-clock"></i>';
+            }
+            timerVisible = !timerVisible;
+            animateButton(this);
+        });
+        
+        // Countdown timer
+        function updateCountdown() {
+            const hoursElement = document.getElementById('countdown-hours');
+            const minutesElement = document.getElementById('countdown-minutes');
+            const secondsElement = document.getElementById('countdown-seconds');
+            
+            let hours = parseInt(hoursElement.textContent);
+            let minutes = parseInt(minutesElement.textContent);
+            let seconds = parseInt(secondsElement.textContent);
+            
+            seconds--;
+            
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    
+                    if (hours < 0) {
+                        hours = 23;
+                        minutes = 59;
+                        seconds = 59;
+                    }
+                }
+            }
+            
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+            
+            // Flash animation on 59 seconds
+            if (seconds === 59) {
+                secondsElement.classList.add('animate-countdown-flash');
+                setTimeout(() => {
+                    secondsElement.classList.remove('animate-countdown-flash');
+                }, 1000);
+            }
+        }
+        
+        // Animate counters
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+        
+        // Show rocket animation
+        function showRocketAnimation() {
+            const rocketContainer = document.getElementById('rocketContainer');
+            const rocket = rocketContainer.querySelector('.rocket');
+            
+            rocketContainer.style.display = 'block';
+            rocket.classList.add('animate-rocket-launch');
+            
+            setTimeout(() => {
+                rocketContainer.style.display = 'none';
+                rocket.classList.remove('animate-rocket-launch');
+            }, 2000);
+        }
+        
+        // Button animation
+        function animateButton(button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 100);
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start countdown timer
+            setInterval(updateCountdown, 1000);
+            
+            // Animate counters
+           setTimeout(() => animateCounter('clients-counter', 32 , 1500), 50);
+            setTimeout(() => animateCounter('projects-counter', 47, 1500), 1000);
+            setTimeout(() => animateCounter('success-counter', 98, 1500), 1500);
+            
+            // Auto-select Pro plan
+            const proPlan = document.querySelector('.plan-card[data-plan="pro"]');
+            if (proPlan) {
+                proPlan.style.border = '2px solid #dc2626';
+                proPlan.querySelector('.plan-button').style.background = 'linear-gradient(90deg, #dc2626, #9333ea)';
+            }
+            
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.plan-progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 1000);
+            });
+            
+            // Add touch feedback to all aggressive-tap elements
+            document.addEventListener('touchstart', function() {}, { passive: true });
+            
+            // Auto-open first FAQ
+            if (faqItems.length > 0) {
+                setTimeout(() => {
+                    faqItems[0].classList.add('active');
+                }, 1000);
+            }
+            
+            // Random order ID
+            document.getElementById('orderId').textContent = 'RX-' + Math.floor(Math.random() * 1000);
+        });
+        
+        // Handle orientation change
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Refresh animations
+                document.querySelectorAll('.animate-feature-pulse').forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

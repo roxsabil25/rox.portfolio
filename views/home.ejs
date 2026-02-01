@@ -1,0 +1,198 @@
+
+<%- include('partials/header') %>
+<!-- MAIN WRAPPER -->
+<div class="main mt-[55px] w-full max-w-[1440px] mx-auto flex flex-col xl:flex-row gap-8 xl:gap-10 px-4 md:px-8 pt-28">
+
+  <!-- PROFILE (no sticky) -->
+  <section class="w-full xl:w-[700px]">
+  <div class="pt-[50px] bg-black rounded-3xl p-10 shadow-2xl border border-white/10 relative ">
+
+    <!-- Solar System Center -->
+    <div class="relative w-52 h-52 mx-auto mb-6">
+      <!-- Sun -->
+      <div class="sun overflow-hidden w-28 h-28 bg-red-500 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg flex items-center justify-center text-black font-bold text-2xl z-10 ">
+        <img class="w-full profile-img" src="/img/sss.png" alt="RoX Sabil avatar">
+      </div>
+
+      <!-- Orbits -->
+      <div class="orbit orbit1 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="planet node w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          <i class="fa-brands fa-node"></i>
+        </div>
+      </div>
+
+      <div class="orbit orbit2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="planet react w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          <i class="fab fa-react"></i>
+        </div>
+      </div>
+
+      <div class="orbit orbit3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="planet python w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold">
+          <i class="fa-brands fa-square-js "></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Text Content -->
+    <h2 class=" mt-10 text-4xl font-bold text-white text-center">RoX <span class="text-red-600">Sabil</span></h2>
+    <h3 class="text-gray-300 text-lg text-center mt-4">Full-Stack Web Developer</h3>
+    <p class="text-gray-400 text-sm max-w-md mx-auto text-center">
+       I’m a passionate Full-Stack Web Developer <span class="text-white font-semibold">specializing in Node.js, React, and MongoDB.</span> <span>I build modern, fast, and scalable websites for businesses, startups, and individuals.</span>
+    </p>
+
+    <!-- Social Icons -->
+    <div class="flex gap-5 text-2xl text-white/70 pt-2 justify-center">
+      <a href="https://github.com/roxsabil25" class="hover:text-red-600 transition" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rox-sabil-0042631ba/" class="hover:text-red-600 transition" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/8801749935208" class="hover:text-red-600 transition" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i>
+</a>
+      <a href="https://www.facebook.com/salsabil.rahman.90/" class="hover:text-red-600 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex gap-4 pt-6 justify-center">
+      <a href="/contact" class="px-6 py-3 bg-red-600 rounded-2xl hover:bg-red-700 transition font-bold">Hire Me</a>
+      <a href="/cv" class="px-6 py-3 border border-white/40 rounded-2xl hover:border-red-600 transition font-bold">Show CV</a>
+    </div>
+
+    <div class="mt-4 text-center">
+      <p class="text-gray-300 text-sm">
+        I build <span class="text-red-600 font-bold">interactive 3D-like websites</span> with animations and dynamic designs.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  <!-- SERVICES + SKILLS -->
+  <section class="w-full xl:w-[700px] flex flex-col gap-8">
+
+    <!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
+<div class="bg-black rounded-3xl p-8 shadow-2xl border border-white/10 overflow-hidden relative h-[289px]">
+  <h1 class="text-3xl font-bold mb-6 text-white">My Services</h1>
+
+  <div class="flex flex-col gap-6">
+    <div class="services-scroll" aria-label="Services list">
+      <div class="services-track">
+        <!-- Service 1 -->
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown">
+          <i class="fas fa-layer-group text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">Full Stack Development</h2>
+            <p class="text-gray-400 text-sm mt-1">React, Node.js, Express & MongoDB applications.</p>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown delay-1s">
+          <i class="fas fa-laptop-code text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">Frontend Development</h2>
+            <p class="text-gray-400 text-sm mt-1">Responsive UI with Tailwind & React.</p>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown delay-2s">
+          <i class="fas fa-server text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">Backend & APIs</h2>
+            <p class="text-gray-400 text-sm mt-1">Secure APIs & authentication systems.</p>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown delay-3s">
+          <i class="fas fa-search text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">SEO & Optimization</h2>
+            <p class="text-gray-400 text-sm mt-1">Fast loading & search engine optimized websites.</p>
+          </div>
+        </div>
+
+        <!-- Repeat for smoother loop -->
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown">
+          <i class="fas fa-layer-group text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">Full Stack Development</h2>
+            <p class="text-gray-400 text-sm mt-1">React, Node.js, Express & MongoDB applications.</p>
+          </div>
+        </div>
+
+        <div class="service-card bg-white/5 p-6 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4 animate-updown delay-1s">
+          <i class="fas fa-laptop-code text-red-600 text-3xl"></i>
+          <div>
+            <h2 class="font-semibold text-red-600 text-xl">Frontend Development</h2>
+            <p class="text-gray-400 text-sm mt-1">Responsive UI with Tailwind & React.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- SKILLS -->
+    <div class="bg-black rounded-3xl p-8 shadow-2xl border border-white/10">
+      <h1 class="text-3xl font-bold mb-6 text-white">Technical Skills</h1>
+      <div class="grid sm:grid-cols-2 gap-4 skills-list">
+        <div class="skill-item card-hover bg-white/5 p-4 rounded-xl shadow-lg border border-white/10 transition-transform transform animate-updown delay-2s">
+          <span class="font-semibold text-red-600">Frontend:</span> HTML, CSS, JS, React
+        </div>
+        <div class="skill-item card-hover bg-white/5 p-4 rounded-xl shadow-lg border border-white/10 transition-transform transform animate-updown delay-3s">
+          <span class="font-semibold text-red-600">Backend:</span> Node.js, Express, MongoDB
+        </div>
+        <div class="skill-item card-hover bg-white/5 p-4 rounded-xl shadow-lg border border-white/10 transition-transform transform animate-updown delay-1.5s">
+          <span class="font-semibold text-red-600">Tools:</span> Git, GitHub, Postman
+        </div>
+        <div class="skill-item card-hover bg-white/5 p-4 rounded-xl shadow-lg border border-white/10 transition-transform transform animate-updown delay-1.8s">
+          <span class="font-semibold text-red-600">Extra:</span> SEO, Bug Fixing, Optimization
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="w-full xl:w-[700px]">
+    <div class="bg-black rounded-3xl p-8 shadow-2xl border border-white/10 space-y-6">
+      <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Recent Projects</h1>
+        <a href="/projects" class="text-sm text-gray-400  cursor-pointer hover:text-red-600 transition">See all</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/5 rounded-2xl overflow-hidden project-card shadow-lg card-hover transition transform border border-white/10">
+          <img src="/img/Capture.png" class="w-full h-44 object-cover" alt="Project screenshot">
+          <div class="p-4">
+            <h3 class="font-semibold text-white  px-3 py-1 rounded-lg text-sm inline-block mb-2">Web Design</h3>
+            <a href="#" class="inline-block mt-2 bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition">See Project</a>
+          </div>
+        </div>
+        <div class="bg-white/5 rounded-2xl overflow-hidden project-card shadow-lg card-hover transition transform border border-white/10">
+          <img src="/img/02.png" class="w-full h-44 object-cover" alt="Project screenshot">
+          <div class="p-4">
+            <h3 class="font-semibold text-white  px-3 py-1 rounded-lg text-sm inline-block mb-2">Web Development</h3>
+            <a href="#" class="inline-block mt-2 bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition">See Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- AGGRESSIVE ANIMATION SECTION -->
+  <section class="  py-8">
+    <div class="bg-red-600 text-white text-center py-8 rounded-3xl aggressive-section shadow-2xl">
+      <h2 class="text-3xl font-bold">Hire Me Now!</h2>
+      <p class="text-lg mt-2">Let's turn your ideas into reality</p>
+      <a href="https://wa.me/8801749935208" class="inline-block mt-4 bg-white text-red-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">Get In Touch</a>
+    </div>
+  </section>
+  </section>
+
+ 
+
+  <%- include('partials/footer') %>
+

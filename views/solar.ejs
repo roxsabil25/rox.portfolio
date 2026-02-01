@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar System Animation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    background: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* Center Sun */
+  .sun {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ffcc00, #ff9900);
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 40px #ffcc00;
+  }
+
+  /* Orbit containers */
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform-origin: center center;
+    animation: spin linear infinite;
+  }
+
+  .orbit .planet {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  /* Orbit radii and speed */
+  .orbit1 { width: 180px; height: 180px; margin-left:-90px; margin-top:-90px; animation-duration: 8s; }
+  .orbit2 { width: 240px; height: 240px; margin-left:-120px; margin-top:-120px; animation-duration: 12s; }
+  .orbit3 { width: 300px; height: 300px; margin-left:-150px; margin-top:-150px; animation-duration: 16s; }
+  .orbit4 { width: 360px; height: 360px; margin-left:-180px; margin-top:-180px; animation-duration: 20s; }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .planet {
+    width: 40px;
+    height: 40px;
+    background: #1e90ff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+  }
+
+  /* Custom planet colors */
+  .planet.node { background: #3c873a; }
+  .planet.react { background: #61dafb; color:black; }
+  .planet.python { background: #306998; }
+  .planet.github { background: #fff; color:black; }
+</style>
+</head>
+<body>
+
+<!-- Sun -->
+<div class="sun overflow-hidden">
+  
+  <img class="w-full" src="/img/rox1.jpg" alt="">
+</div>
+
+<!-- Orbits -->
+<div class="orbit orbit1">
+  <div class="planet node"><i class="fab fa-node-js"></i></div>
+</div>
+
+<div class="orbit orbit2">
+  <div class="planet react"><i class="fab fa-react"></i></div>
+</div>
+
+<div class="orbit orbit3">
+  <div class="planet python"><i class="fab fa-python"></i></div>
+</div>
+
+<div class="orbit orbit4">
+  <div class="planet github"><i class="fab fa-github"></i></div>
+</div>
+
+</body>
+</html>
