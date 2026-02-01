@@ -1,6 +1,14 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// MongoDB connect
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
 
 
 const projectCatagoryModel = require('./models/projectCatagory');
@@ -121,6 +129,6 @@ app.get('/projectshocase/:title',async (req,res)=>{
 
 
 // Server
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
