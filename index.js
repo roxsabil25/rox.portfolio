@@ -125,6 +125,10 @@ app.get('/projectshocase/:title',async (req,res)=>{
     res.render('projectshocase', { projects })
 });
 
+// Health Check Route
+app.get('/healthz', (req, res) => {
+    res.status(200).send('Server is healthy and running!');
+});
 
 // Server
 
